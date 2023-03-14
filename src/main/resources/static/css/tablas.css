@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.titulo{
+    
+    top: 110px;
+    position: absolute;
+    color: white;
+
+}
+.page-nav {
+    background-color: #3681F7;
+    color: white;
+    position: relative;
+    height: 100px;
+}
+.tabla{
+    position: relative;
+    top: 70px;
+    margin: auto;
+}
+.navbar{
+    bottom: 20px;
+    margin: auto;
+    display:flex;
+    align-items: center;
+    position:relative;
+        
+}
+nav{
+    padding-left: 60px;
+    position:absolute;
+    left:29%;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0px 15px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;   
+}
+.logo{
+    position:absolute;
+   top: 50px;
+   left: 1%; 
+}
+.login{
+    position:absolute;
+    top: 5px;
+   left: 88%; 
+}
