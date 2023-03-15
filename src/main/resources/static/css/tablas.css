@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .titulo{
-    
+
     top: 110px;
     position: absolute;
     color: white;
 
 }
 .page-nav {
-    background-color: #3681F7;
+    background-image: url(../image/2.jpg);
     color: white;
     position: relative;
     height: 100px;
@@ -23,7 +23,7 @@
     display:flex;
     align-items: center;
     position:relative;
-        
+
 }
 nav{
     padding-left: 60px;
@@ -38,15 +38,23 @@ nav ul li{
 nav ul li a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 20px;   
+    font-size: 20px;
 }
-.logo{
+.nombre-tienda{
     position:absolute;
-   top: 50px;
-   left: 1%; 
+    top: 35px;
+    left: 7%;
 }
 .login{
     position:absolute;
     top: 5px;
-   left: 88%; 
+    left: 88%;
+}
+.logo{
+    position:absolute;
+    right: 90%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+
 }

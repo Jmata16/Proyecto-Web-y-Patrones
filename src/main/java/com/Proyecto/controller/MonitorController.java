@@ -15,14 +15,14 @@ import com.Proyecto.service.IMonitorService;
 public class MonitorController {
     
     @Autowired
-    private IMonitorService peliculaService;
+    private IMonitorService monitoresService;
 
     
     @GetMapping("/monitor")
     public String index(Model model) {
-        List<Monitor> listaPelicula = peliculaService.getAll();
+        List<Monitor> listaMonitor = monitoresService.getAll();
         model.addAttribute("titulo", "Monitores");
-        model.addAttribute("peliculas", listaPelicula);
+        model.addAttribute("monitores", listaMonitor);
         return "monitores";
     }   
 

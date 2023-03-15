@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.repository.MonitorRepository;
 
 /**
- * List<Pelicula> getAllPelicula
+ * List<Monitor> getAllPelicula
  *
  * @author jdmat
  */

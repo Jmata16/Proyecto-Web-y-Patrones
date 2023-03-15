@@ -32,9 +32,9 @@
     cursor:pointer;        
 }
 nav{
-    padding-left: 60px;
+    padding-left: 90px;
     position:absolute;
-    left:50%;
+    left:60%;
 }
 nav ul li{
     list-style: none;

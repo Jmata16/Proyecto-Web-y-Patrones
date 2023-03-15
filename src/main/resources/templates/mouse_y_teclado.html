@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Monitores</title>
+        <title>Mouse y taclados</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
@@ -37,7 +37,7 @@
                     <li> <a href="index.html">Home</a> </li>
                     <li> <a href="categorias.html">Menu</a> </li>
                     <li> <a href="audifono">Audifonos</a> </li>
-                    <li> <a href="myt">Mouse y teclado</a> </li>
+                    <li> <a href="monitor">Monitores</a> </li>
                     <li> <a href="url">Contactenos</a> </li>
                     <li> <a href="url">Carrito de copra</a> </li>
                 </ul>
@@ -53,11 +53,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                <th:block th:each="user : ${monitores}">
+                <th:block th:each="user : ${MyT}">
                     <tr>
-                        <td th:text="${user.getMarca}"></td>
-                        <td th:text="${user.getModelo}"></td>
-                        <td th:text="${user.getCosto}"></td>
+                        <td th:text="${user.getMarca_myt}"></td>
+                        <td th:text="${user.getNombre_myt}"></td>
+                        <td th:text="${user.getPrecio_myt}"></td>
                     </tr>
                 </th:block>
                 </tbody>
