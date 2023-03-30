@@ -11,16 +11,15 @@
     <body>
         <div class="page-nav">
             <div class="nombre-tienda">
-            <h1><a title="Logo" href="index.html">
+                <h1><a title="Logo" href="index.html">
                     </a> Tienda</h1>
-                </div>
+            </div>
             <div class="logo">
-            <img src="image/LOGO-HO.png" alt=""/>
+                <img src="image/LOGO-HO.png" alt=""/>
+            </div>
+
         </div>
-            
-        </div>
-        <div class="page-nav">
-            <div class="titulo text-dark"><h1 th:text="${titulo}"></h1> </div>   
+        <div class="page-nav">  
         </div>
         <div class="login">
             <nav>
@@ -30,38 +29,40 @@
                 </ul>           
         </div>
 
-            </nav>
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li> <a href="index.html">Home</a> </li>
-                    <li> <a href="categorias.html">Menu</a> </li>
-                    <li> <a href="audifono">Audifonos</a> </li>
-                    <li> <a href="monitor">Monitores</a> </li>
-                    <li> <a href="url">Contactenos</a> </li>
-                    <li> <a href="url">Carrito de copra</a> </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="tabla"> 
-            <table class="fs-1 table table-Light table-bordered">
-                <thead class="table text-light" style="background-color: #000">
-                    <tr><!<!-- tablerow -->
-                        <th scope="col">Marca</th>
-                        <th scope="col">Modelo </th>
-                        <th scope="col">Precio </th>
-                    </tr>
-                </thead>
-                <tbody>
-                <th:block th:each="user : ${MyT}">
-                    <tr>
-                        <td th:text="${user.getMarca_myt}"></td>
-                        <td th:text="${user.getNombre_myt}"></td>
-                        <td th:text="${user.getPrecio_myt}"></td>
-                    </tr>
-                </th:block>
-                </tbody>
-            </table>
-        </div>
-    </body>
+    </nav>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="categorias.html">Menu</a> </li>
+                <li> <a href="audifono">Audifonos</a> </li>
+                <li> <a href="monitor">Monitores</a> </li>
+                <li> <a href="url">Contactenos</a> </li>
+                <li> <a href="url">Carrito de copra</a> </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="titulo"><h2 th:text="${titulo}"></h2> </div> 
+    <div class="tabla"> 
+        <table class="fs-1 table table-Light table-bordered">
+            <thead class="table text-light" style="background-color: #000">
+                <tr><!<!-- tablerow -->
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo </th>
+                    <th scope="col">Precio </th>
+                </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user : ${MyT}">
+                <tr>
+                    <td th:text="${user.getMarca.getMarca}"></td>
+                    <td th:text="${user.getNombre_myt}"></td>
+                    <td th:text="${user.getPrecio_myt}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <footer th:replace="plantilla/template::footer">    </footer>
+</body>
 </html>

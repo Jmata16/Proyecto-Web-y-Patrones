@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -18,9 +20,11 @@ public class MyT {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String marca_myt;
     private String nombre_myt;
     private String precio_myt;
+    @ManyToOne
+    @JoinColumn(name = "marcas_id")
+    private Marca marca;
 
     public long getId() {
         return id;
@@ -28,14 +32,6 @@ public class MyT {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getMarca_myt() {
-        return marca_myt;
-    }
-
-    public void setMarca_myt(String marca_myt) {
-        this.marca_myt = marca_myt;
     }
 
     public String getNombre_myt() {
@@ -52,6 +48,14 @@ public class MyT {
 
     public void setPrecio_myt(String precio_myt) {
         this.precio_myt = precio_myt;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
 }

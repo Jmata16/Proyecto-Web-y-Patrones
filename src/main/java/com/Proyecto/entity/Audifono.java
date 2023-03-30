@@ -1,29 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Proyecto.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 
 /**
  *
  * @author jdmat
  */
-
 @Entity
 @Table(name = "audifonos")
-public class Audifono {
+public class Audifono implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String marca_audifono;
     private String nombre_audifono;
     private String precio_audifono;
+
+    @ManyToOne
+    @JoinColumn(name = "marcas_id")
+    private Marca marca;
 
     public long getId() {
         return id;
@@ -31,14 +33,6 @@ public class Audifono {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getMarca_audifono() {
-        return marca_audifono;
-    }
-
-    public void setMarca_audifono(String marca_audifono) {
-        this.marca_audifono = marca_audifono;
     }
 
     public String getNombre_audifono() {
@@ -56,6 +50,13 @@ public class Audifono {
     public void setPrecio_audifono(String precio_audifono) {
         this.precio_audifono = precio_audifono;
     }
-    
-    
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
 }

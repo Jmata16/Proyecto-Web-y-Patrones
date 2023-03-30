@@ -1,21 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .titulo{
-
-    top: 110px;
-    position: absolute;
-    color: white;
-
+    position:static;
+    text-align: center;
+    text-decoration-line: underline;
+    color: black;
 }
 .page-nav {
     background-image: url(../image/2.jpg);
     color: white;
-    position: relative;
+    position: static;
     height: 100px;
 }
 .tabla{
-    position: relative;
-    top: 70px;
-    margin: auto;
+    position: static;
 }
 .navbar{
     bottom: 20px;

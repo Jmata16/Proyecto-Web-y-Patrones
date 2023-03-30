@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 
@@ -18,9 +20,11 @@ public class Monitor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String marca;
     private String modelo;
-    private String costo; 
+    private String costo;
+    @ManyToOne
+    @JoinColumn(name = "marcas_id")
+    private Marca marca;
 
     public long getId() {
         return id;
@@ -28,14 +32,6 @@ public class Monitor implements Serializable {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public String getModelo() {
@@ -54,7 +50,13 @@ public class Monitor implements Serializable {
         this.costo = costo;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
 
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
 
 
 }
