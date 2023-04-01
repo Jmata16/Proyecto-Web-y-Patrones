@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <title>Categorias</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <a th:href="@{/admin/categorias/add}" style="margin: 20px 0" class="btn btn-primary">Agregar</a>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Borrar</th>
+                        <th scope="col">Actualizar</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr th:each="categoria, iStat : ${categorias}">
+                        <th scope="row" th:text="${iStat.index + 1}">1</th>
+                        <td th:text="${categoria.nombre}">Larry</td>
+
+                        <td><a href="" th:href="@{/admin/categorias/borrar/{id}(id=${categoria.id})}" class="btn btn-danger">Borrar</a></td>
+                        <td><a href="" th:href="@{/admin/categorias/actualizar/{id}(id=${categoria.id})}" class="btn btn-warning">Actualizar</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
