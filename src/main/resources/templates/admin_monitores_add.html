@@ -18,8 +18,8 @@
 
                 <!-- Esto es un formulario -->
                 <div class="container">
-                    <form th:object="${audifono}"
-                          th:action="@{/admin/productos/audifonos/save}"
+                    <form th:object="${monitor}"
+                          th:action="@{/admin/productos/monitores/save}"
                           method="POST"
                           >
                         <input type="hidden" th:field="*{id}">
@@ -44,16 +44,16 @@
                             </div>
                         </div>
                         <div class="form-group mb-3 row">
-                            <label  class="col-md-2 col-form-label" for="nombre_audifono">Nombre</label>                            
+                            <label  class="col-md-2 col-form-label" for="modelo">Modelo</label>                            
                             <div class="col-sm-10">                                
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{nombre_audifono}"  placeholder= "Nombre" id="nombre_audifono" aria-describedby="emailHelp">                            
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{modelo}"  placeholder= "Modelo" id="modelo" aria-describedby="emailHelp">                            
                             </div>
                         </div>
 
                         <div class="form-group mb-3 row">
-                            <label  class="col-md-2 col-form-label" for="precio_audifono">Precio en colones</label>                            
+                            <label  class="col-md-2 col-form-label" for="costo">Precio en colones</label>                            
                             <div class="col-sm-10">                                
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{precio_audifono}"  placeholder= "Precio" id="precio_audifono" aria-describedby="emailHelp">                            
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{costo}"  placeholder= "Precio" id="costo" aria-describedby="emailHelp">                            
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>

@@ -3,9 +3,13 @@ package com.Proyecto.controller;
 import com.Proyecto.entity.Audifono;
 import com.Proyecto.entity.Categoria;
 import com.Proyecto.entity.Marca;
+import com.Proyecto.entity.MyT;
+import com.Proyecto.entity.Monitor;
 import com.Proyecto.service.MarcaService;
 import com.Proyecto.service.AudifonoService;
 import com.Proyecto.service.CategoriaService;
+import com.Proyecto.service.MonitorService;
+import com.Proyecto.service.MyTService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +32,13 @@ public class AdminController {
     AudifonoService audifonoService;
     
     @Autowired
+    MonitorService monitorService;
+    
+    @Autowired
     MarcaService marcaService;
+    
+    @Autowired
+    MyTService mytService;
 
     @GetMapping("/admin")
     public String admin_home() {
@@ -64,16 +74,20 @@ public class AdminController {
         return "productos";
     }
     
+    
+    /////////  AUDIFONOS/////////////
+    
+    
     @GetMapping("/admin/productos/audifonos")
     public String getAudifonos(Model model){
         model.addAttribute("audifonos", audifonoService.getAll());
         return "admin_audifonos";
     }
     
-    @GetMapping("/admin/productos/audifonos/delete{id}")
+    @GetMapping("/admin/productos/audifonos/borrar/{id}")
     public String eliminarAudifono(@PathVariable("id") Long idAudifono){
         audifonoService.delete(idAudifono);
-        return "redirect:/persona";
+        return "redirect:/admin/productos/audifonos";
     }
     
     @GetMapping("/admin/productos/audifonos/add")
@@ -86,4 +100,75 @@ public class AdminController {
         return "admin_audifonos_add";
     }
     
+    @PostMapping("/admin/productos/audifonos/save")
+    public String guardarAudifono(@ModelAttribute Audifono audifono){
+        audifonoService.saveAudifono(audifono);
+        return "redirect:/admin/productos/audifonos";
+    }
+    
+    
+    /////////// MONITORES //////////////////
+    
+    
+    @GetMapping("/admin/productos/monitores")
+    public String getMonitores(Model model){
+        model.addAttribute("monitores", monitorService.getAll());
+        return "admin_monitores";
+    }
+    
+    @GetMapping("/admin/productos/monitores/borrar/{id}")
+    public String eliminarMonitor(@PathVariable("id") Long idMonitor){
+        monitorService.delete(idMonitor);
+        return "redirect:/admin/productos/monitores";
+    }
+    
+    @GetMapping("/admin/productos/monitores/add")
+    public String crearMonitor(Model model){
+        List<Marca> listaMarcas = marcaService.getAll();
+        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        model.addAttribute("monitor",new Monitor());
+        model.addAttribute("marcas", listaMarcas);
+        model.addAttribute("categorias", listaCategorias);
+        return "admin_monitores_add";
+    }
+    
+    @PostMapping("/admin/productos/monitores/save")
+    public String guardarMonitor(@ModelAttribute Monitor monitor){
+        monitorService.saveMonitor(monitor);
+        return "redirect:/admin/productos/monitores";
+    }
+    
+    
+    
+    
+    /////////// MOUSE Y TECLADO //////////////////
+    
+    
+    @GetMapping("/admin/productos/myt")
+    public String getMyT(Model model){
+        model.addAttribute("myt", mytService.getAll());
+        return "admin_myt";
+    }
+    
+    @GetMapping("/admin/productos/myt/borrar/{id}")
+    public String eliminarMyT(@PathVariable("id") Long idMyT){
+        mytService.delete(idMyT);
+        return "redirect:/admin/productos/myt";
+    }
+    
+    @GetMapping("/admin/productos/myt/add")
+    public String crearMyT(Model model){
+        List<Marca> listaMarcas = marcaService.getAll();
+        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        model.addAttribute("myt",new MyT());
+        model.addAttribute("marcas", listaMarcas);
+        model.addAttribute("categorias", listaCategorias);
+        return "admin_myt_add";
+    }
+    
+    @PostMapping("/admin/productos/myt/save")
+    public String guardarMyT(@ModelAttribute MyT myt){
+        mytService.saveMyT(myt);
+        return "redirect:/admin/productos/monitores";
+    }
 }

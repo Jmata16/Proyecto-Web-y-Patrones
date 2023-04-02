@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <title>Administrador</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <a th:href="@{/admin/productos/monitores/add}" style="margin: 20px 0" class="btn btn-primary">Agregar</a>
+            <table class="table">
+                <thead class="thead-light" style="background-color: #000">
+                    <tr><!<!-- tablerow -->
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo </th>
+                        <th scope="col">Precio </th>
+                        <th scope="col">Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="user : ${monitores}">
+                    <tr>
+                        <td th:text="${user.getMarca.getMarca}"></td>
+                        <td th:text="${user.getModelo}"></td>
+                        <td th:text="${user.getCosto}"></td>
+                        <td><a href="" th:href="@{/admin/productos/monitores/borrar/{id}(id=${user.getId})}" class="btn btn-danger">Borrar</a></td>
+
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
