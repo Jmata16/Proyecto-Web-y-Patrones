@@ -25,6 +25,10 @@ public class MyT {
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
+    
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
     public long getId() {
         return id;
@@ -57,5 +61,15 @@ public class MyT {
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
 
 }
