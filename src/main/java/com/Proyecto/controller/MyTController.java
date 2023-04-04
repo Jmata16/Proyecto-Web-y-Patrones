@@ -21,7 +21,7 @@ public class MyTController {
     public String index(Model model) {
         List<MyT> listaMyT = mytService.getAll();
         model.addAttribute("titulo", "Mouse y teclado");
-        model.addAttribute("MyT", listaMyT);
+        model.addAttribute("myt", listaMyT);
         return "mouse_y_teclado";
     }  
 }

@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .titulo{
-    position:static;
-    text-align: center;
-    text-decoration-line: underline;
-    color: black;
+    position:absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 .page-nav {
     background-image: url(../image/2.jpg);
@@ -11,9 +12,7 @@
     position: static;
     height: 100px;
 }
-.tabla{
-    position: static;
-}
+
 .navbar{
     bottom: 20px;
     margin: auto;
