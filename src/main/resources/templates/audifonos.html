@@ -9,40 +9,7 @@
         <link rel="stylesheet" href="css/tablas.css"/>
     </head>
     <body>
-        <div class="page-nav">
-            <div class="nombre-tienda">
-                <h1><a title="Logo" href="index.html">
-                    </a> Tienda</h1>
-            </div>
-            <div class="logo">
-                <img src="image/LOGO-HO.png" alt=""/>
-            </div>
-
-        </div>
-        <div class="page-nav">
-
-        </div>
-        <div class="login">
-            <nav>
-                <ul>
-                    <li> <a href="login.html">Log in</a> </li>
-                    <li> <a href="url">Registrarse</a> </li>
-                </ul>           
-        </div>
-
-    </nav>
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li> <a href="index.html">Home</a> </li>
-                <li> <a href="categorias.html">Menu</a> </li>
-                <li> <a href="monitor">Monitores</a> </li>
-                <li> <a href="myt">Mouse y teclado</a> </li>
-                <li> <a href="url">Contactenos</a> </li>
-                <li> <a href="url">Carrito de copra</a> </li>
-            </ul>
-        </nav>
-    </div>
+<header th:replace="plantilla/template::header">    </header> 
     <div class="titulo"><h2 th:text="${titulo}"></h2> </div> 
     <div class="tabla"> 
         <table class="fs-1 table table-Light table-bordered">

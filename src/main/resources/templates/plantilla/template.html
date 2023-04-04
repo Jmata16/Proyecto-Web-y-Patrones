@@ -9,11 +9,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
         <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     </head>
     <body>
         <header th:fragment="header">
+            <body>
+                <div class="page-nav">
+                    <div class="nombre-tienda">
+                        <h1><a title="Logo" href="index.html">
+                            </a> Tienda</h1>
+                    </div>
+                    <div class="logo">
+                        <img src="image/LOGO-HO.png" alt=""/>
+                    </div>
+
+                </div>
+                <div class="page-nav"> 
+                </div>
+                <div class="login">
+                    <nav>
+                        <ul>
+                            <li> <a href="login.html">Log in</a> </li>
+                            <li> <a href="url">Registrarse</a> </li>
+                        </ul>           
+                </div>
+
+                </nav>
+                <div class="navbar">
+                    <nav>
+                        <ul>
+                            <li> <a href="index.html">Home</a> </li>
+                            <li> <a href="categorias.html">Menu</a> </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                                    Categorias
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="monitor">Monitores</a></li>
+                                    <li><a class="dropdown-item" href="audifono">Audifonos</a></li>
+                                    <li><a class="dropdown-item" href="myt">Teclados y mouse</a></li>
+                                    <li><a class="dropdown-item" href="shop"> Todos los productos</a></li>
+                                   
+                                </ul>
+                            </li>
+                            <li> <a href="url">Contactenos</a> </li>
+                            <li> <a href="url">Carrito de copra</a> </li>
+                        </ul>
+                    </nav>
+                </div>
         </header>
 
         <!-- Footer -->
@@ -33,22 +78,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div>
                     <a href="https://twitter.com/"><img 
                             src="image/twitter.png" alt="" 
-                            class="me-4"></a>
+                            class=""></a>
                     <a href="https://instagram.com/"><img 
                             src="image/instagram.png" alt="" 
-                            class="me-4"></a>
+                            class=""></a>
                     <a href="https://facebook.com/"><img 
                             src="image/facebook.png" alt="" 
-                            class="me-4"></a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-github"></i>
-                    </a>
+                            class=""></a>
                 </div>
                 <!-- Right -->
             </section>
