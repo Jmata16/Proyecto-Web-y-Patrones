@@ -3,7 +3,7 @@
       xmlns:sec="http://thymeleaft.org/extras/spring-security">>
     <head>
         <title>Login</title>
-         <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
         <div class="centro">
             <div class="cuadrado">
                 <div class="text">Inicio de Sesión</div>
-                <form name="f" th:action="#" method="#">
+                <form name="f" th:action="@{/login}" method="post">
                     <!-- @{/login} --> <!-- post -->
                     <fieldset>
                         <!-- ERROR DISPLAY -->
@@ -50,7 +50,7 @@
                             <div class="inner"></div>
                             <button type="submit" class="btn btn-success">Iniciar sesión</button>
                         </div>
-                        <div class="registrarse">¿No tienes una cuenta? <a class ="mt-5" href="registro.html">¡Registrate ahora!</a></div>
+                        <div class="registrarse">¿No tienes una cuenta? <a class ="mt-5" href="/registro">¡Registrate ahora!</a></div>
                     </fieldset>
                 </form>
             </div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/registro.css"/>
+    </head>
+    <body>
+        <div class="centro">
+            <div class="cuadrado">
+                <div class="text">Registro</div>
+                <form th:object="${usuario}"
+                      th:action="@{/registro/save}"
+                      method="POST">
+                    <input type="hidden" th:field="*{id}">
+                    
+                    <div class="datos">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" th:field="*{nombre}" placeholder="Nombre" id="nombre" aria-describedby="emailHelp">
+                    </div>
+                    <div class="datos">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" th:field="*{apellido}" placeholder="Apellido" id="apellido" aria-describedby="emailHelp">
+                    </div>
+                    <div class="datos">
+                        <label for="cedula">Cedula</label>
+                        <input type="text" th:field="*{cedula}" placeholder="Número de cedula" id="cedula" aria-describedby="emailHelp">
+                    </div>
+                    <div class="datos">
+                        <label for="email">Email</label>
+                        <input type="text" th:field="*{email}" placeholder="Correo Electrónico" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="datos">
+                        <label for="password">Contraseña</label>
+                        <input type="password" th:field="*{password}" placeholder="Contraseña" id="password" aria-describedby="emailHelp">
+                    </div>
+                    <div class="container_boton">
+                        <div class="boton">
+                            <div class="inner"></div>
+                            <button type="submit" value="Guardar">Registrarse</button>
+                        </div>
+                        <div class="boton">
+                            <div class="inner"></div>
+                            <button href="/login">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <div class="registrarse">¿Ya tienes una cuenta? <a href="/login">¡Inicia Sesión!</a></div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

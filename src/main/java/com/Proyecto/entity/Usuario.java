@@ -19,6 +19,7 @@ import javax.persistence.Table;
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String nombre;
     private String apellido;
     private int cedula;
@@ -106,6 +107,16 @@ public class Usuario implements Serializable{
         }
         return new ArrayList<>();
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
+    
     
     
 }
