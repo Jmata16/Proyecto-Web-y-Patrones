@@ -17,13 +17,11 @@
     bottom: 20px;
     margin: auto;
     display:flex;
-    align-items: center;
-    position:relative;
 
 }
 nav{
     position:absolute;
-    left:29%;
+
 }
 nav ul li{
     list-style: none;
@@ -42,8 +40,8 @@ nav ul li a {
 }
 .login{
     position:absolute;
-    top: 5px;
-    left: 88%;
+    top: 40px;
+    left: 86%;
 }
 .logo{
     position:absolute;
@@ -52,4 +50,16 @@ nav ul li a {
     margin: auto;
     display: flex;
 
+}
+.userImg{
+    position:relative;
+    top: 25px;
+    right: 20%;
+    
+}
+.userImg1{
+    position:relative;
+    top: 25px;
+    right: 36%;
+    
 }

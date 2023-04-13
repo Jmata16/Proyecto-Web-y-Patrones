@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Audifonos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
+        <link rel="stylesheet" href="css/tablas.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <header th:replace="plantilla/template::header"></header> 
+        <div class="titulo"><h2 th:text="${titulo}"></h2> </div> 
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                    <div class="card-body p-4">
+                        <div class="form-outline mb-4">
+                            <a class="btn btn-primary" href="comentario" role="button">Dejanos tu comentario</a>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-body" th:each="user : ${comentarios}">
+                                <div class="d-flex flex-row my-3">
+                                    <img src="image/user1.png" alt="avatar" />
+                                    <h5 class="mx-5 card-title" th:text="${user.getNombre}+' '+${user.getApellido}"></h5>
+                                </div>
+                                <p class="card-text" th:text="${user.getClientecomentario}"></p>
+
+                                <div class="d-flex justify-content-between">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="plantilla/template::footer">    </footer>
+</body>
+</body>
+</html>

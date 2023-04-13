@@ -36,7 +36,13 @@ public class ComentarioController {
         comentariosService.saveComentario(comentario);
         return "redirect:/shop";
     }
-    
+       @GetMapping("/VerComentarios")
+    public String getComentario(Model model) {
+        List<Comentario> listaComentario = comentariosService.getAll();
+        model.addAttribute("titulo", "Comentarios");
+        model.addAttribute("comentarios", listaComentario);
+        return "vercomentarios";
+    }   
     
     
     

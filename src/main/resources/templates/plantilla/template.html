@@ -30,14 +30,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
                 <div class="login">
                     <nav>
-                        <ul>
-                            <li> <a href="login.html">Log in</a> </li>
-                            <li> <a href="registro.html">Registrarse</a> </li>
+                        <ul> 
+
+                            <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
+                                <img class="userImg1" src="image/user.png" alt="">
+                                <a class="text-light">Usuario</a>
+                            </li>
+                            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                                <img class="userImg" src="image/user.png" alt="">
+                                <a class="text-light">Administrador</a>
+                            </li>
                         </ul>           
                 </div>
 
                 </nav>
-                <div class="navbar">
+                <div class="navbar d-flex justify-content-center">
                     <nav>
                         <ul>
                             <li> <a href="index.html">Home</a> </li>
@@ -51,11 +58,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <li><a class="dropdown-item" href="audifono">Audifonos</a></li>
                                     <li><a class="dropdown-item" href="myt">Teclados y mouse</a></li>
                                     <li><a class="dropdown-item" href="shop"> Todos los productos</a></li>
-                                   
                                 </ul>
                             </li>
-                            <li> <a href="url">Contactenos</a> </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                                    Contacto
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
+                                    <li><a class="dropdown-item" href="">Contactenos</a></li>
+                                </ul>
+                            </li>
                             <li> <a href="url">Carrito de copra</a> </li>
+                            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                                <a class="nav-link" href="admin">Modo Admin</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
