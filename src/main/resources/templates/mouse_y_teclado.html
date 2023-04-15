@@ -24,7 +24,8 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${mouse.getMarca.getMarca}+' '+${mouse.getNombre_myt}"></h5>
                             <p class="card-text" th:text="${mouse.getPrecio_myt}"></p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <a th:href="@{shop/myt/{id}(id=${mouse.getId})}" class="btn btn-primary">Ver Producto</a>
+                            <a href="#" class="btn btn-primary" style="margin-top: 10px">Agregar al carrito</a>
                         </div>
                     </div>
                 </div>

@@ -47,4 +47,25 @@ public class HomeController {
         model.addAttribute("myt",mytService.getAll());
         return "shop";
     }
+    
+    @GetMapping("shop/monitor/{id}")
+    public String mostrarMonitor(@PathVariable("id") Long id, Model model){
+        Monitor monitor = monitorService.getMonitorById(id);
+        model.addAttribute("monitor", monitor);
+        return "monitor_producto";
+    }
+    
+    @GetMapping("shop/audifono/{id}")
+    public String mostrarAudifono(@PathVariable("id") Long id, Model model){
+        Audifono audifono = audifonoService.getAudifonoById(id);
+        model.addAttribute("audifono", audifono);
+        return "audifono_producto";
+    }
+    
+    @GetMapping("shop/myt/{id}")
+    public String mostrarMyt(@PathVariable("id") Long id, Model model){
+        MyT myt = mytService.getMyTById(id);
+        model.addAttribute("myt", myt);
+        return "myt_producto";
+    }
 }
