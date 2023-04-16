@@ -7,6 +7,7 @@ import com.Proyecto.entity.MyT;
 import com.Proyecto.entity.Monitor;
 import com.Proyecto.service.MarcaService;
 import com.Proyecto.service.AudifonoService;
+import com.Proyecto.service.CartItemService;
 import com.Proyecto.service.CategoriaService;
 import com.Proyecto.service.MonitorService;
 import com.Proyecto.service.MyTService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 /**
  *
  * @author Pablo Guerrero
@@ -38,6 +40,9 @@ public class HomeController {
     
     @Autowired
     MyTService mytService;
+    
+    @Autowired
+    private CartItemService cartService;
     
     @GetMapping("/shop")
     public String shopScreen(Model model){
@@ -67,5 +72,15 @@ public class HomeController {
         MyT myt = mytService.getMyTById(id);
         model.addAttribute("myt", myt);
         return "myt_producto";
+    }
+    
+    
+//    CARRITO DE COMPRAS 
+    
+    @PostMapping("/add-audifono-to-cart")
+    public String addAudifonoToCart(@RequestParam Long audifonoId){
+        Audifono audifono = audifonoService.getAudifonoById(audifonoId);
+        cartService.addAudifonoToCart(audifono);
+        return "redirect:/shop";
     }
 }

@@ -24,7 +24,7 @@ public class MyT implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre_myt;
-    private String precio_myt;
+    private double precio_myt;
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
@@ -49,11 +49,11 @@ public class MyT implements Serializable {
         this.nombre_myt = nombre_myt;
     }
 
-    public String getPrecio_myt() {
+    public double getPrecio_myt() {
         return precio_myt;
     }
 
-    public void setPrecio_myt(String precio_myt) {
+    public void setPrecio_myt(double precio_myt) {
         this.precio_myt = precio_myt;
     }
 

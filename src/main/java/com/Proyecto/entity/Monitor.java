@@ -22,7 +22,7 @@ public class Monitor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String modelo;
-    private String costo;
+    private double costo;
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
@@ -47,11 +47,11 @@ public class Monitor implements Serializable {
         this.modelo = modelo;
     }
 
-    public String getCosto() {
+    public double getCosto() {
         return costo;
     }
 
-    public void setCosto(String costo) {
+    public void setCosto(double costo) {
         this.costo = costo;
     }
 

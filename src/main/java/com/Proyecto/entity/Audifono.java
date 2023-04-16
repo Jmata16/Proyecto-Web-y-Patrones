@@ -22,7 +22,7 @@ public class Audifono implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre_audifono;
-    private String precio_audifono;
+    private double precio_audifono;
 
     @ManyToOne
     @JoinColumn(name = "marcas_id")
@@ -48,11 +48,11 @@ public class Audifono implements Serializable {
         this.nombre_audifono = nombre_audifono;
     }
 
-    public String getPrecio_audifono() {
+    public double getPrecio_audifono() {
         return precio_audifono;
     }
 
-    public void setPrecio_audifono(String precio_audifono) {
+    public void setPrecio_audifono(double precio_audifono) {
         this.precio_audifono = precio_audifono;
     }
 

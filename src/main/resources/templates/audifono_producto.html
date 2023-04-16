@@ -51,7 +51,11 @@
                         </div>
                     </div>    -->
                     <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
+                        
+                            <form method="POST" th:action="@{/add-audifono-to-cart}">
+                                <input type="hidden" name="audifonoId" th:value="${producto.getId}">
+                                <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
+                            </form>
                     </div>                                        
                 </div>
             </div>
