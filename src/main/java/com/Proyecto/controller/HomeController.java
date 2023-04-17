@@ -83,4 +83,26 @@ public class HomeController {
         cartService.addAudifonoToCart(audifono);
         return "redirect:/shop";
     }
+    
+    @PostMapping("/add-monitor-to-cart")
+    public String addMonitorToCart(@RequestParam Long monitorId){
+        Monitor monitor = monitorService.getMonitorById(monitorId);
+        cartService.addMonitorToCart(monitor);
+        return "redirect:/shop";
+    }
+    
+    @PostMapping("/add-myt-to-cart")
+    public String addMyTToCart(@RequestParam Long mytId){
+        MyT myt = mytService.getMyTById(mytId);
+        cartService.addMyTToCart(myt);
+        return "redirect:/shop";
+    }
+    
+    
+    @GetMapping("/carrito")
+    public String getCarrito(Model model){
+        model.addAttribute("carrito",cartService.getAll());
+        model.addAttribute("total",cartService.getTotal());
+        return "carrito";
+    }
 }

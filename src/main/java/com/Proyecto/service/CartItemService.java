@@ -5,6 +5,8 @@ import com.Proyecto.entity.CartItem;
 import com.Proyecto.entity.Monitor;
 import com.Proyecto.entity.MyT;
 import com.Proyecto.repository.CartItemRepository;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @author Pablo Guerrero
  */
 @Service
-public class CartItemService {
+public class CartItemService implements ICartItemService {
     @Autowired
     private CartItemRepository cartRepository;
     
@@ -42,5 +44,19 @@ public class CartItemService {
         cartItem.setPrecio(myt.getPrecio_myt());
         cartItem.setCantidad(1);
         cartRepository.save(cartItem);
+    }
+    
+    @Override
+    public List<CartItem> getAll(){
+        return (List<CartItem>) cartRepository.findAll();
+    }
+    
+    private List<CartItem> cartItems = new ArrayList<>();
+    public double  getTotal(){
+        double total = 0.0;
+        for(CartItem item : cartItems){
+            total += item.getPrecio();
+        }
+        return total;
     }
 }
