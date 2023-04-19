@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+.contact-container {
+    
+    margin: 150px;
+    padding: 2px 16px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    background-color: lightgrey;
+}
+
+.contact-forum {
+    
+    margin: 15px;
+    padding: 2px 500px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    background-color: lightgrey;
+}
+
+.contact-page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+.cuadrado{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.cuadrado .text{
+    font-size: 35px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.cuadrado form{
+    margin-top: -20px;
+}
+
+.cuadrado form .email{
+    height: 45px;
+    widht: 100%;
+    margin: 40px 0;
+}
+
+.cuadrado form .comentario{
+    height: 200px;
+    widht: 100%;
+    margin: 40px 0;
+}
+
+form .email input{
+    height: 50px;
+    width: 1000px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+}
+
+form .comentario input{
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 140px;
+    font-size: 17px;
+    border: 1px solid grey;
+}
+
+form .boton{
+    margin: 30px 0;
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    position: relative;
+}
+
+form .boton .inner{
+    height: 100%;
+    position: absolute;
+    width: 300%;
+    z-index: -1;
+    left: -100%;
+    background: blue;
+}
+
+form .boton button{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    
+}
+
+form .boton button:hover{
+    cursor: pointer;
+}
+
+form .registrarse{
+    text-align: center;
+}
+
+form .registrarse a{
+    color: blue;
+}
+
