@@ -7,6 +7,7 @@ import com.Proyecto.entity.MyT;
 import com.Proyecto.repository.CartItemRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CartItemService implements ICartItemService {
+    
+    CartItem cartItem;
+    
     @Autowired
     private CartItemRepository cartRepository;
     
@@ -52,11 +56,19 @@ public class CartItemService implements ICartItemService {
     }
     
     private List<CartItem> cartItems = new ArrayList<>();
-    public double  getTotal(){
-        double total = 0.0;
-        for(CartItem item : cartItems){
-            total += item.getPrecio();
-        }
-        return total;
+    
+    public void borrarCarrito(){
+        this.cartItems.clear();
     }
+    
+    public void borrarItem(Long id){
+        cartRepository.deleteById(id);
+    }
+    
+    
+    public void getById(Long id){
+        cartRepository.findById(id);
+    }
+    
+    
 }

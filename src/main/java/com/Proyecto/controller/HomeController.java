@@ -1,6 +1,7 @@
 package com.Proyecto.controller;
 
 import com.Proyecto.entity.Audifono;
+import com.Proyecto.entity.CartItem;
 import com.Proyecto.entity.Categoria;
 import com.Proyecto.entity.Marca;
 import com.Proyecto.entity.MyT;
@@ -11,7 +12,6 @@ import com.Proyecto.service.CartItemService;
 import com.Proyecto.service.CategoriaService;
 import com.Proyecto.service.MonitorService;
 import com.Proyecto.service.MyTService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +26,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class HomeController {
+    
+    double total;
+    
     @Autowired
     CategoriaService categoriaService;
     
@@ -80,6 +83,7 @@ public class HomeController {
     @PostMapping("/add-audifono-to-cart")
     public String addAudifonoToCart(@RequestParam Long audifonoId){
         Audifono audifono = audifonoService.getAudifonoById(audifonoId);
+        total = total+audifono.getPrecio_audifono();
         cartService.addAudifonoToCart(audifono);
         return "redirect:/shop";
     }
@@ -87,6 +91,7 @@ public class HomeController {
     @PostMapping("/add-monitor-to-cart")
     public String addMonitorToCart(@RequestParam Long monitorId){
         Monitor monitor = monitorService.getMonitorById(monitorId);
+        total = total+monitor.getCosto();
         cartService.addMonitorToCart(monitor);
         return "redirect:/shop";
     }
@@ -94,6 +99,7 @@ public class HomeController {
     @PostMapping("/add-myt-to-cart")
     public String addMyTToCart(@RequestParam Long mytId){
         MyT myt = mytService.getMyTById(mytId);
+        total = total+myt.getPrecio_myt();
         cartService.addMyTToCart(myt);
         return "redirect:/shop";
     }
@@ -102,7 +108,20 @@ public class HomeController {
     @GetMapping("/carrito")
     public String getCarrito(Model model){
         model.addAttribute("carrito",cartService.getAll());
-        model.addAttribute("total",cartService.getTotal());
+        model.addAttribute("total",total);
         return "carrito";
+    }
+    
+    @PostMapping("/carrito/checkout")
+    public String confirmaCompra(){
+        cartService.borrarCarrito();
+        total=0.00;
+        return "redirect:/carrito";
+    }
+    
+    @GetMapping("/carrito/borrar/{id}")
+    public String borrarItem(@PathVariable Long id){
+        cartService.borrarItem(id);
+        return "redirect:/carrito";
     }
 }

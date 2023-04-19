@@ -44,10 +44,12 @@
                                                             <h5 class="fw-normal mb-0"></h5>
                                                         </div>
                                                         <div style="width: 80px;">
-                                                            <h5 class="mb-0" th:text="${item.getPrecio}"></h5>
+                                                            <h5 class="mb-0" th:text="'₡'+${item.getPrecio}"></h5>
                                                         </div>
-                                                        <a href="#!" style="color: #cecece;"><i
-                                                                class="fas fa-trash-alt">PONER METODO BORRAR</i></a>
+                                                        <a th:href="@{/carrito/borrar/{id}(id=${item.getId})}"><img src="../image/delete.png"
+                                                                                                                    width="35px"
+                                                                                                                    heigth="35px"
+                                                                                                                    alt="BORRAR"/></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -66,16 +68,16 @@
                                                     <div class="form-outline form-white mb-4">
                                                         <input type="text" id="typeName"
                                                                class="form-control form-control-lg" siez="17"
-                                                               placeholder="Cardholder's Name" />
+                                                               placeholder="Nombre en la tarjeta" />
                                                         <label class="form-label" for="typeName">Nombre en la tarjeta</label>
                                                     </div>
 
                                                     <div class="form-outline form-white mb-4">
                                                         <input type="text" id="typeText"
                                                                class="form-control form-control-lg" siez="17"
-                                                               placeholder="1234 5678 9012 3457" minlength="19"
-                                                               maxlength="19" />
-                                                        <label class="form-label" for="typeText">Número de la tarjeta</label>
+                                                               placeholder="xxxx-xxxx-xxxx-xxxx" minlength="19"
+                                                               maxlength="16" />
+                                                        <label class="form-label" for="typeText">Número de tarjeta</label>
                                                     </div>
 
                                                     <div class="row mb-4">
@@ -83,7 +85,7 @@
                                                             <div class="form-outline form-white">
                                                                 <input type="text" id="typeExp"
                                                                        class="form-control form-control-lg"
-                                                                       placeholder="MM/YYYY" size="7" minlength="7"
+                                                                       placeholder="MM/YYYY" size="6" minlength="7"
                                                                        maxlength="7" />
                                                                 <label class="form-label" for="typeExp">Expiración</label>
                                                             </div>
@@ -110,12 +112,12 @@
 
                                                 <div class="d-flex justify-content-between mb-4">
                                                     <p class="mb-2">Total</p>
-                                                    <p class="mb-2" <span th:text="${total}"></p>
+                                                    <p class="mb-2" th:text="'₡'+${total}" ></p>
                                                 </div>
 
                                                 <button type="button" class="btn btn-info btn-block btn-lg">
                                                     <div class="d-flex justify-content-between">
-                                                        <span>$4818.00</span>
+                                                        <span th:text="'₡'+${total}"></span>
                                                         <span>Checkout <i
                                                                 class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                     </div>

@@ -23,7 +23,7 @@
                         <img src="image/not_loaded.jpg" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${user.getMarca.getMarca}+' '+${user.getNombre_audifono}"></h5>
-                            <p class="card-text" th:text="${user.getPrecio_audifono}"></p>
+                            <p class="card-text" th:text="'₡'+${user.getPrecio_audifono}"></p>
                             <a th:href="@{shop/audifono/{id}(id=${user.getId})}" class="btn btn-primary">Ver Producto</a>
                             <form method="POST" th:action="@{/add-audifono-to-cart}">
                                 <input type="hidden" name="audifonoId" th:value="${user.getId}">

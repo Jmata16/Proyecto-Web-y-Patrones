@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository;
  * @author Pablo Guerrero
  */
 @Repository
-public interface CartItemRepository extends CrudRepository<CartItem, Long> {
-    
+public interface CartItemRepository extends CrudRepository<CartItem, Long> {    
 }
