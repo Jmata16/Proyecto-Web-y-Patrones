@@ -106,6 +106,17 @@ public class AdminController {
         return "redirect:/admin/productos/audifonos";
     }
     
+    @GetMapping("/admin/productos/audifonos/editar/{id}")
+    public String editarAudifonos(@PathVariable("id") Long idAudifono, Model model){
+        Audifono audifono = audifonoService.getAudifonoById(idAudifono);
+        List<Marca> listaMarcas = marcaService.getAll();
+        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        model.addAttribute("audifono", audifono);
+        model.addAttribute("marcas", listaMarcas);
+        model.addAttribute("categorias", listaCategorias);
+        return "admin_audifonos_add";
+    }
+    
     
     /////////// MONITORES //////////////////
     
@@ -136,6 +147,17 @@ public class AdminController {
     public String guardarMonitor(@ModelAttribute Monitor monitor){
         monitorService.saveMonitor(monitor);
         return "redirect:/admin/productos/monitores";
+    }
+    
+    @GetMapping("/admin/productos/monitores/editar/{id}")
+    public String editarMonitor(@PathVariable("id") Long idMonitor, Model model){
+        Monitor monitor = monitorService.getMonitorById(idMonitor);
+        List<Marca> listaMarcas = marcaService.getAll();
+        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        model.addAttribute("monitor", monitor);
+        model.addAttribute("marcas", listaMarcas);
+        model.addAttribute("categorias", listaCategorias);
+        return "admin_monitores_add";
     }
     
     
@@ -170,5 +192,16 @@ public class AdminController {
     public String guardarMyT(@ModelAttribute MyT myt){
         mytService.saveMyT(myt);
         return "redirect:/admin/productos/monitores";
+    }
+    
+    @GetMapping("/admin/productos/myt/editar/{id}")
+    public String editarMyT(@PathVariable("id") Long idMyT, Model model){
+        MyT myt = mytService.getMyTById(idMyT);
+        List<Marca> listaMarcas = marcaService.getAll();
+        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        model.addAttribute("myt", myt);
+        model.addAttribute("marcas", listaMarcas);
+        model.addAttribute("categorias", listaCategorias);
+        return "admin_myt_add";
     }
 }

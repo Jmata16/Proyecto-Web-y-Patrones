@@ -21,6 +21,7 @@
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo </th>
                         <th scope="col">Precio </th>
+                        <th scope="col">Editar</th>
                         <th scope="col">Borrar</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                         <td th:text="${user.getMarca.getMarca}"></td>
                         <td th:text="${user.getNombre_audifono}"></td>
                         <td th:text="${user.getPrecio_audifono}"></td>
+                        <td><a href="" th:href="@{/admin/productos/audifonos/editar/{id}(id=${user.getId})}" class="btn btn-primary">Borrar</a></td>
                         <td><a href="" th:href="@{/admin/productos/audifonos/borrar/{id}(id=${user.getId})}" class="btn btn-danger">Borrar</a></td>
 
                     </tr>

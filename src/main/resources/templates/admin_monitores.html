@@ -21,6 +21,7 @@
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo </th>
                         <th scope="col">Precio </th>
+                        <th scope="col">Editar</th>
                         <th scope="col">Borrar</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                         <td th:text="${user.getMarca.getMarca}"></td>
                         <td th:text="${user.getModelo}"></td>
                         <td th:text="${user.getCosto}"></td>
+                        <td><a href="" th:href="@{/admin/productos/monitores/editar/{id}(id=${user.getId})}" class="btn btn-primary">Editar</a></td>
                         <td><a href="" th:href="@{/admin/productos/monitores/borrar/{id}(id=${user.getId})}" class="btn btn-danger">Borrar</a></td>
 
                     </tr>
