@@ -26,9 +26,9 @@ public class Usuario implements Serializable{
     private String email;
     
     private String password;
-    private String permissions="";
-    private String roles="";
-    private int active;
+    private String permissions="USER";
+    private String roles="USER";
+    private int active = 1;
 
     public String getNombre() {
         return nombre;

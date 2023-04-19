@@ -8,18 +8,24 @@ import com.Proyecto.entity.Usuario;
 import com.Proyecto.repository.UsuarioRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-/**
- *
- * @author Pablo Guerrero
- */
 @Service
 public class UsuarioService implements IUsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    PasswordEncoder passwordEncoder;
+     
     
+
+    
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.passwordEncoder  = new BCryptPasswordEncoder();
+    }
+
     @Override
     public List<Usuario> getAllUsuario() {
         return (List<Usuario>) usuarioRepository.findAll();
@@ -32,6 +38,8 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public void saveUsuario(Usuario usuario) {
+       String encodedPassword=this.passwordEncoder.encode(usuario.getPassword());
+       usuario.setPassword(encodedPassword);
         usuarioRepository.save(usuario);
     }
 
@@ -39,11 +47,10 @@ public class UsuarioService implements IUsuarioService {
     public void delete(long id) {
         usuarioRepository.deleteById(id);
     }
-    
+
     @Override
     public Usuario findByNombre(String username) {
         return usuarioRepository.findByNombre(username);
     }
-    
-    
+
 }

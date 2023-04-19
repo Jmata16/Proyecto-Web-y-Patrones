@@ -13,4 +13,9 @@ public class LoginController {
     public String index(){
         return "/login";
     }
+    
+        @GetMapping("/logout")
+    public String index1(){
+        return "redirect:/shop";
+    }
 }
