@@ -13,46 +13,185 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
               integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <title>Monitor</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+            .titulo{
+                position:absolute;
+                top: 9%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: black;
+            }
+            .page-nav {
+                background-image: url(https://i.imgur.com/jL6ISFd.jpg);
+
+                position: static;
+                height: 100px;
+            }
+
+            .navbar{
+                bottom: 20px;
+                margin: auto;
+                display:flex;
+
+            }
+            nav{
+                position:absolute;
+
+            }
+            nav ul li{
+                list-style: none;
+                display: inline-block;
+                margin: 0px 40px;
+            }
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 20px;
+            }
+            .nombre-tienda{
+                position:absolute;
+                top: 35px;
+                left: 7%;
+                color: white;
+            }
+            .login{
+                position:absolute;
+                top: 40px;
+                left: 86%;
+            }
+            .logo{
+                position:absolute;
+                right: 90%;
+                height: 15vh;
+                margin: auto;
+                display: flex;
+
+            }
+            .userImg{
+                position:relative;
+                top: 25px;
+                right: 20%;
+
+            }
+            .userImg1{
+                position:relative;
+                top: 25px;
+                right: 36%;
+
+            }
+        </style>
     </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-4 item-photo">
-                    <img style="max-width:100%;" src="https://m.media-amazon.com/images/I/71WTWP9NYbL.jpg" />
-                </div>
-                <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${monitor}">
-
-                    <!-- Datos del producto-->
-                    <h3 th:text="${producto.getMarca.getMarca}+' '+${producto.getModelo}"></h3>   
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-                        mollit anim id est laborum.</h5>
-
-                    <!-- Precios -->
-                    <h6 class="title-price"><small>PRECIO:</small></h6>
-                    <h3 th:text="'₡'+${monitor.getCosto}" style="margin-top:0px;"></h3>
-
-
-                    <!-- Botones de compra -->
-                    <!--                    <div class="section" style="padding-bottom:20px;">
-                                            <h6 class="title-attr"><small>CANTIDAD</small></h6>                    
-                                            <div>
-                                                <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                                <input value="1" />
-                                                <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
-                                            </div>
-                                        </div>    -->
-                    <form method="POST" th:action="@{/add-monitor-to-cart}">
-                        <input type="hidden" name="monitorId" th:value="${producto.getId}">
-                        <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
-                    </form>                                        
-                </div>
+    <header>
+        <div class="page-nav">
+            <div class="nombre-tienda">
+                <h1><a title="Logo" href="index.html">
+                    </a> Tienda</h1>
             </div>
+            <div class="logo">
+                <img src="image/LOGO-HO.png" alt=""/>
+            </div>
+
+        </div>
+        <div class="page-nav"> 
+        </div>
+        <div class="">
+            <nav>
+                <ul> 
+                    <div class="login">
+                        <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
+                            <img class="userImg1" src="image/user.png" alt="">
+                            <a class="text-light">Usuario</a>
+                        </li>
+                    </div> 
+                    <div class="login">
+                        <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                            <img class="userImg" src="image/user.png" alt="">
+                            <a class="text-light">Administrador</a>
+                        </li>
+                    </div> 
+                    <div class="logout">
+                        <div sec:authorize="isAuthenticated()">
+                            <a href="javascript: document.logoutForm.submit()" class=" text-light">Logout</a>
+                            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                <input hidden type="submit" value="Sign Out" />
+                            </form>
+                        </div>
+                    </div> 
+                    <div class="login1">
+                        <div sec:authorize="!isAuthenticated()">
+                            <img class="loginimg" src="image/login.png" alt="">
+                            <a class=" text-light" href="/login">Login</a>
+                        </div>
+                    </div>
+                </ul>          
         </div>
 
+    </nav>
+    <div class="navbar d-flex justify-content-center">
+        <nav>
+            <ul>
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="categorias.html">Menu</a> </li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/monitor}">Monitores</a></li>
+                        <li><a class="dropdown-item" th:href="@{/audifono}">Audifonos</a></li>
+                        <li><a class="dropdown-item" th:href="@{/myt}">Teclados y mouse</a></li>
+                        <li><a class="dropdown-item" th:href="@{/shop}"> Todos los productos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                        Contacto
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
+                        <li><a class="dropdown-item" href="">Contactenos</a></li>
+                    </ul>
+                </li>
+                <li> <a th:href="@{/carrito}">Carrito de compra</a> </li>
+                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                    <a class="nav-link" href="admin">Modo Admin</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 item-photo">
+                <img style="max-width:100%;" src="https://m.media-amazon.com/images/I/71WTWP9NYbL.jpg" />
+            </div>
+            <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${monitor}">
 
-        <footer th:replace="plantilla/template::footer"></footer>
-    </body>
+                <!-- Datos del producto-->
+                <h3 th:text="${producto.getMarca.getMarca}+' '+${producto.getModelo}"></h3>   
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                    mollit anim id est laborum.</h5>
+
+                <!-- Precios -->
+                <h6 class="title-price"><small>PRECIO:</small></h6>
+                <h3 th:text="'₡'+${monitor.getCosto}" style="margin-top:0px;"></h3>
+
+
+
+                <form method="POST" style="padding-bottom:20px;" th:action="@{/add-monitor-to-cart}">
+                    <input type="hidden" name="monitorId" th:value="${producto.getId}">
+                    <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
+                </form>                                        
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="plantilla/template::footer"></footer>
+</body>
 </html>
