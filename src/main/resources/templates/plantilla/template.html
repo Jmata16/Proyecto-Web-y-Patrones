@@ -15,195 +15,212 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <header th:fragment="header">
-                            <div class="page-nav">
-                    <div class="nombre-tienda">
-                        <h1><a title="Logo" href="index.html">
-                            </a> Tienda</h1>
-                    </div>
-                    <div class="logo">
-                        <img src="image/LOGO-HO.png" alt=""/>
-                    </div>
-
+            <div class="page-nav">
+                <div class="nombre-tienda">
+                    <h1><a title="Logo" href="index.html">
+                        </a> Tienda</h1>
                 </div>
-                <div class="page-nav"> 
+                <div class="logo">
+                    <img src="image/LOGO-HO.png" alt=""/>
                 </div>
-                <div class="login">
-                    <nav>
-                        <ul> 
 
+            </div>
+            <div class="page-nav"> 
+            </div>
+            <div class="">
+                <nav>
+                    <ul> 
+                        <div class="login">
                             <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
                                 <img class="userImg1" src="image/user.png" alt="">
                                 <a class="text-light">Usuario</a>
                             </li>
+                        </div> 
+                        <div class="login">
                             <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
                                 <img class="userImg" src="image/user.png" alt="">
                                 <a class="text-light">Administrador</a>
                             </li>
-                        </ul>           
-                </div>
-
-                </nav>
-                <div class="navbar d-flex justify-content-center">
-                    <nav>
-                        <ul>
-                            <li> <a href="index.html">Home</a> </li>
-                            <li> <a href="categorias.html">Menu</a> </li>
-                            <li class="nav-item dropdown">
-                                <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                                    Categorias
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="monitor">Monitores</a></li>
-                                    <li><a class="dropdown-item" href="audifono">Audifonos</a></li>
-                                    <li><a class="dropdown-item" href="myt">Teclados y mouse</a></li>
-                                    <li><a class="dropdown-item" href="shop"> Todos los productos</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                                    Contacto
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
-                                    <li><a class="dropdown-item" href="">Contactenos</a></li>
-                                </ul>
-                            </li>
-                            <li> <a href="carrito">Carrito de copra</a> </li>
-                            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                                <a class="nav-link" href="admin">Modo Admin</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-        </header>
-
-        <!-- Footer -->
-        <footer th:fragment="footer"
-                class="text-center text-lg-start text-white"
-                style="background-color: #000"
-                >
-
-            <section
-                class="d-flex justify-content-between p-3"
-                style="background-color: #009999">
-
-                <div class="me-5">
-                    <span>Nuestras redes sociales:</span>
-                </div>
-
-                <div>
-                    <a href="https://twitter.com/"><img 
-                            src="image/twitter.png" alt="" 
-                            class=""></a>
-                    <a href="https://instagram.com/"><img 
-                            src="image/instagram.png" alt="" 
-                            class=""></a>
-                    <a href="https://facebook.com/"><img 
-                            src="image/facebook.png" alt="" 
-                            class=""></a>
-                </div>
-                <!-- Right -->
-            </section>
-            <!-- Section: Social media -->
-
-            <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <!-- Content -->
-                            <h6 class="text-uppercase fw-bold">Company name</h6>
-                            <hr
-                                class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #4CAF50; height: 2px"
-                                />
-                            <p>
-                                Tienda Game Over
-                            </p>
+                        </div> 
+                        <div class="logout">
+                            <div sec:authorize="isAuthenticated()">
+                                <a href="javascript: document.logoutForm.submit()" class=" text-light">Logout</a>
+                                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                    <input hidden type="submit" value="Sign Out" />
+                                </form>
+                            </div>
+                        </div> 
+                        <div class="login1">
+                            <div sec:authorize="!isAuthenticated()">
+                                <img class="loginimg" src="image/login.png" alt="">
+                                <a class=" text-light" href="/login">Login</a>
+                            </div>
                         </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Products</h6>
-                            <hr
-                                class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #4CAF50; height: 2px"
-                                />
-                            <p>
-                                <a href="monitor" class="text-white">Monitores</a>
-                            </p>
-                            <p>
-                                <a href="audifono" class="text-white">Audifonos</a>
-                            </p>
-                            <p>
-                                <a href="myt" class="text-white">Mouses y Teclados</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Useful links</h6>
-                            <hr
-                                class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #4CAF50; height: 2px"
-                                />
-                            <p>
-                                <a href="login.html" class="text-white">Log In</a>
-                            </p>
-                            <p>
-                                <a href="registro.html" class="text-white">Registrarse</a>
-                            </p>
-                            <p>
-                                <a href="comentario" class="text-white">Dejanos tu comentario</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Contactenos</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Contact</h6>
-                            <hr
-                                class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #4CAF50; height: 2px"
-                                />
-                            <p><i class="fas fa-home mr-3"></i> San Pedro, SJ, CR</p>
-                            <p><i class="fas fa-envelope mr-3"></i> info@GameOver.com</p>
-                            <p><i class="fas fa-phone mr-3"></i> +506 2345-6789</p>
-                            <p><i class="fas fa-print mr-3"></i> +506 8765-4321</p>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                </div>
-            </section>
-            <!-- Section: Links  -->
-
-            <!-- Copyright -->
-            <div
-                class="text-center p-3"
-                style="background-color: rgba(0, 0, 0, 0.2)"
-                >
-                © 2023 Copyright:
-                <a class="text-white" href="index.html"
-                   >TiendaGameOver.com</a
-                >
+                    </ul>          
             </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
 
-    </div>
-    <!-- End of .container -->
+        </nav>
+        <div class="navbar d-flex justify-content-center">
+            <nav>
+                <ul>
+                    <li> <a href="index.html">Home</a> </li>
+                    <li> <a href="categorias.html">Menu</a> </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="monitor">Monitores</a></li>
+                            <li><a class="dropdown-item" href="audifono">Audifonos</a></li>
+                            <li><a class="dropdown-item" href="myt">Teclados y mouse</a></li>
+                            <li><a class="dropdown-item" href="shop"> Todos los productos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                            Contacto
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
+                            <li><a class="dropdown-item" href="">Contactenos</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="carrito">Carrito de copra</a> </li>
+                    <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                        <a class="nav-link" href="admin">Modo Admin</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <footer th:fragment="footer"
+            class="text-center text-lg-start text-white"
+            style="background-color: #000"
+            >
+
+        <section
+            class="d-flex justify-content-between p-3"
+            style="background-color: #009999">
+
+            <div class="me-5">
+                <span>Nuestras redes sociales:</span>
+            </div>
+
+            <div>
+                <a href="https://twitter.com/"><img 
+                        src="image/twitter.png" alt="" 
+                        class=""></a>
+                <a href="https://instagram.com/"><img 
+                        src="image/instagram.png" alt="" 
+                        class=""></a>
+                <a href="https://facebook.com/"><img 
+                        src="image/facebook.png" alt="" 
+                        class=""></a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Company name</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #4CAF50; height: 2px"
+                            />
+                        <p>
+                            Tienda Game Over
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Products</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #4CAF50; height: 2px"
+                            />
+                        <p>
+                            <a href="monitor" class="text-white">Monitores</a>
+                        </p>
+                        <p>
+                            <a href="audifono" class="text-white">Audifonos</a>
+                        </p>
+                        <p>
+                            <a href="myt" class="text-white">Mouses y Teclados</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Useful links</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #4CAF50; height: 2px"
+                            />
+                        <p>
+                            <a href="login.html" class="text-white">Log In</a>
+                        </p>
+                        <p>
+                            <a href="registro.html" class="text-white">Registrarse</a>
+                        </p>
+                        <p>
+                            <a href="comentario" class="text-white">Dejanos tu comentario</a>
+                        </p>
+                        <p>
+                            <a href="contactenos.html" class="text-white">Contactenos</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #4CAF50; height: 2px"
+                            />
+                        <p><i class="fas fa-home mr-3"></i> San Pedro, SJ, CR</p>
+                        <p><i class="fas fa-envelope mr-3"></i> info@GameOver.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> +506 2345-6789</p>
+                        <p><i class="fas fa-print mr-3"></i> +506 8765-4321</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div
+            class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+            >
+            © 2023 Copyright:
+            <a class="text-white" href="index.html"
+               >TiendaGameOver.com</a
+            >
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+</div>
+<!-- End of .container -->
 
 </footer>
 </body>

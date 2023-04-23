@@ -39,9 +39,9 @@ nav ul li a {
     left: 7%;
 }
 .login{
-    position:absolute;
-    top: 40px;
-    left: 86%;
+    position:relative;
+    bottom: 130px;
+    left: 1600px;
 }
 .logo{
     position:absolute;
@@ -53,13 +53,31 @@ nav ul li a {
 }
 .userImg{
     position:relative;
-    top: 25px;
-    right: 20%;
-    
+    bottom: 3px;
+    right: 3%;
+
 }
 .userImg1{
     position:relative;
-    top: 25px;
-    right: 36%;
-    
+    bottom: 3px;
+    right: 3%;
+}
+.logout{
+    position:relative;
+    bottom: 130px;
+    left: 1663px;
+    font-size: 20px;
+}
+
+
+.logoutimg{
+    position:absolute;
+    bottom: 3px;
+    right: 170px;}
+
+.login1{
+    position:relative;
+    bottom: 130px;
+    left: 1663px;
+    font-size: 20px;
 }

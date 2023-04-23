@@ -18,55 +18,51 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
  */
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
-    
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserService userDetailsService;
-    
+
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
     @Bean
-    public UserService getUserService(){
+    public UserService getUserService() {
         return new UserService();
     }
-    
+
     @Bean
-    DaoAuthenticationProvider authenticationProvider(){
+    DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         daoAuthenticationProvider.setUserDetailsService(getUserService());
         return daoAuthenticationProvider;
     }
-    
+
     @Bean
-    public AuthenticationSuccessHandler appAuthenticationSuccessHandler(){
+    public AuthenticationSuccessHandler appAuthenticationSuccessHandler() {
         return new AppAuthenticationSuccessHandler();
     }
-    
-    public SecurityConfig(UserService userPrincipalDetailsService){
-        this.userDetailsService=userPrincipalDetailsService;
+
+    public SecurityConfig(UserService userPrincipalDetailsService) {
+        this.userDetailsService = userPrincipalDetailsService;
     }
-    
+
     @Override
-    protected void configure (AuthenticationManagerBuilder auth){
+    protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
-    
-    //@Override
-    //protected void configure(HttpSecurity http) throws Exception{
-      //  http.authorizeRequests()
-        //        .antMatchers("login")
-          //      .hasRole("ADMIN")
-            //    .antMatchers("/","login")
-              //  .hasAnyRole("USER","ADMIN")
-                //.and()
-                //.formLogin()
-                //.loginPage("/login").permitAll().defaultSuccessUrl("/shop",true).and().logout()
-                //.logoutUrl("logout")
-                //.logoutSuccessUrl("/");
-    //}
-    
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll().defaultSuccessUrl("/shop", true).and().logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/shop");
+    }
+
 }

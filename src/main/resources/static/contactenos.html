@@ -6,103 +6,79 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
+    
     <link rel="stylesheet" href="css/tablas.css"/>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
               integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!-- comment -->
         
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css" />
-    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    
+    
+    <link href="css/contactenos.css" rel="stylesheet" type="text/css"/>
     <link href="css/menu.css" rel="stylsheet" type="text/css" />
     
-    <title>Menu</title>
     
-</head>
-<body>
-    <header th:fragment="header">
-            <body>
-                <div class="page-nav">
-                    <div class="nombre-tienda">
-                        <h1><a title="Logo" href="index.html">
-                            </a> Tienda</h1>
-                    </div>
-                    <div class="logo">
-                        <img src="image/LOGO-HO.png" alt=""/>
-                    </div>
+    <title>Contactenos</title>
+    </head>
+    
+    <body>
 
-                </div>
-                <div class="page-nav"> 
-                </div>
-                <div class="login">
-                    <nav>
-                        <ul>
-                            <li> <a href="login.html">Log in</a> </li>
-                            <li> <a href="registro.html">Registrarse</a> </li>
-                        </ul>           
-                </div>
-
-                </nav>
-                <div class="navbar">
-                    <nav>
-                        <ul>
-                            <li> <a href="index.html">Home</a> </li>
-                            <li> <a href="categorias.html">Menu</a> </li>
-                            <li class="nav-item dropdown">
-                                <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                                    Categorias
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="monitor">Monitores</a></li>
-                                    <li><a class="dropdown-item" href="audifono">Audifonos</a></li>
-                                    <li><a class="dropdown-item" href="myt">Teclados y mouse</a></li>
-                                    <li><a class="dropdown-item" href="shop"> Todos los productos</a></li>
-                                   
-                                </ul>
-                            </li>
-                            <li> <a href="contactenos.html">Contactenos</a> </li>
-                            <li> <a href="url">Carrito de copra</a> </li>
-                        </ul>
-                    </nav>
-                </div>
-        </header>
     
         
-    </div>
-        <div class="page-content">
-        <div class="product-container">
-            <h3>Monitores</h3>
+        
+    <div class="contact-page-content">  
+        
+        <div class="contact-forum">
+            <h3>Envianos un correo</h3>
             
-            <a title="Monitores" href="monitor">
-            <img src="image/categoria/Monitor.png" alt=""/></a>
-
+            <div class="cuadrado">
+            
+                <form action="#">
+                    <div class="email">
+                        <label>Email</label>
+                        <input type="text">
+                    </div>
+                    <div class="comentario">
+                        <label>Comentario</label>
+                        <input type="text">
+                    </div>
+                    
+                    <div class="boton">
+                        <div class="inner"></div>
+                        <button type="submit">Enviar</button>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
-
-        <div class="product-container">
-            <h3>Audifonos</h3>
-            
-            <a title="Audifonos" href="audifono">
-            <img src="image/categoria/Audifonos.png" alt=""/></a>
-            
-        </div>
-
-        <div class="product-container">
-            <h3>Mouses y Teclados</h3>
-            
-            <a title="Mouses y teclados" href="myt">
-            <img src="image/categoria/MouseTeclado.png" alt=""/></a>
-        </div>
-            
-        <div class="product-container">
+        
+        
+        
+        <div class="contact-container">
             <h3>Contactenos</h3>
-            
-            <a title="Contactos" href="contactos.html">
-            <img src="image/categoria/Atencion.png" alt=""/></a>
-        </div>    
+   
+                            <p><i class="fas fa-home mr-3"></i> San Pedro, SJ, CR</p>
+                            <p><i class="fas fa-envelope mr-3"></i> info@GameOver.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> +506 2345-6789</p>
+                            <p><i class="fas fa-print mr-3"></i> +506 8765-4321</p>
+                        </div>        
 
-    </div>
+    </div>        
+        
+        
+        
+        
+        
+        
+    
+    </body>
     
     <footer th:fragment="footer"
                 class="text-center text-lg-start text-white"
@@ -233,3 +209,4 @@
 
 </footer>
 </html>
+
