@@ -10,11 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-/**
- *
- * @author Pablo Guerrero
- */
+
 @Controller
 public class UsuarioController {
     
@@ -32,4 +30,22 @@ public class UsuarioController {
         usuarioService.saveUsuario(usuario);
         return "redirect:/login";
     }
+    
+        @GetMapping("/admin/usuarios")
+    public String index(Model model) {
+
+        List<Usuario> listaUsuarios = usuarioService.getAllUsuario();
+        model.addAttribute("titulo", "Tabla De usuarios");
+        model.addAttribute("usuarios", listaUsuarios);
+        return "admin_Usuarios";
+    }
+    
+    
+    
+        @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        usuarioService.delete(id);
+        return "redirect:/admin/usuarios";
+    }
+
 }

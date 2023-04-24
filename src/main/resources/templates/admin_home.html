@@ -12,7 +12,7 @@
         <title>Administrador</title>
     </head>
     <body>
-        
+
         <div class="jumbotron text-center">
             <h1 class="display-4">¡Bienvenido!</h1>
             <p>Administra tu página desde aquí</p>
@@ -39,7 +39,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-3 pt-3" >
+                    <div class="card" style="background-color:white;">
+                        <div class="card-body">
+                            <h4 class="card-title">Usuarios</h4>
+                            <p class="card-text">Administra los usuarios</p>
+                            <a href="#" th:href="@{/admin/usuarios}" class="card-link btn btn-primary">Entrar</a>
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
