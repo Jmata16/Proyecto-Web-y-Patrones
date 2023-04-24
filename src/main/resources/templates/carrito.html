@@ -118,11 +118,17 @@
                                                     <p class="mb-2" th:text="'₡'+${total}" ></p>
                                                 </div>
 
-                                                <button type="button" class="btn btn-info btn-block btn-lg">
+                                                <button type="button" onclick="redireccionar()" class="btn btn-info btn-block btn-lg">
                                                     <div class="d-flex justify-content-between">
                                                         <span th:text="'₡'+${total}"></span>
                                                         <span>Pagar <i
                                                                 class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                        <script>
+                                                            function redireccionar() {
+                                                                window.location.href = "/pagar";
+                                                            }
+                                                        </script>
+
                                                     </div>
                                                 </button>
 

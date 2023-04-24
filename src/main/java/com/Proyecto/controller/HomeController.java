@@ -112,16 +112,21 @@ public class HomeController {
         return "carrito";
     }
     
-    @PostMapping("/carrito/checkout")
-    public String confirmaCompra(){
-        cartService.borrarCarrito();
-        total=0.00;
-        return "redirect:/carrito";
-    }
-    
+   
     @GetMapping("/carrito/borrar/{id}")
     public String borrarItem(@PathVariable Long id){
         cartService.borrarItem(id);
         return "redirect:/carrito";
+    }
+    
+    @GetMapping("/pagar")
+    public String pagar(){
+        cartService.borrarCarrito();
+        total=0.00;
+        return "Gracias";
+    }
+        @GetMapping("/gracias")
+    public String gracias(){
+        return "Gracias";
     }
 }

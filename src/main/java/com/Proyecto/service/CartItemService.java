@@ -58,13 +58,13 @@ public class CartItemService implements ICartItemService {
     private List<CartItem> cartItems = new ArrayList<>();
     
     public void borrarCarrito(){
-        this.cartItems.clear();
+        cartRepository.deleteAll();
     }
     
     public void borrarItem(Long id){
         cartRepository.deleteById(id);
     }
-    
+
     
     public void getById(Long id){
         cartRepository.findById(id);

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Gracias por su compra</title>
+        <link rel="stylesheet" href="css/tablas.css"/>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+            />
+    </head>
+    <header th:replace="plantilla/template::header"></header>
+    <body> 
+        <div class="text-center">
+            <img src="image/success.png" class="rounded" alt="success">
+        </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>¡Gracias por su compra!</h1>
+                    <p>
+                        Su compra ha sido procesada correctamente y pronto recibirá su
+                        pedido.
+                    </p>
+                    <a href="index.html" class="btn btn-primary">Volver a la página principal</a>
+                </div>
+            </div>
+        </div>
+        <!-- Incluimos los scripts de Bootstrap -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-u8x1xSY5OQBvWv5IvxIIjO9HGM/O0hxDvz11dKjwBCy+s6KfCJ0vU6qZU6kZ9P2cR8PvAsbCNpIw1AQFzZUq6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
+            integrity="sha512-lv7PKNxWpflC7PlZiSP1gxv7dXayW1kiyniWhODKjicpfcw8z0x6T0KLrKgT6aF+6XsvlOb70UyOWhj56p+UTw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+            integrity="sha512-tkgVPr+R0n1wV5e5lsMgl7A2Z+QkARJvX9fto4zNH+4Pc4xBzH16nK2J+1/TgYfS/dpP7VJ9kbcOUWhzdfKofw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <footer th:replace="plantilla/template::footer">    </footer>
+    </body>
+</html>
