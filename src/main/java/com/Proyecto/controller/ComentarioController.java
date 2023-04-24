@@ -34,9 +34,9 @@ public class ComentarioController {
     @PostMapping("/save")
     public String guardarPersona(@ModelAttribute Comentario comentario) {
         comentariosService.saveComentario(comentario);
-        return "redirect:/vercomentarios";
+         return "redirect:/verComentarios";
     }
-       @GetMapping("/VerComentarios")
+       @GetMapping("/verComentarios")
     public String getComentario(Model model) {
         List<Comentario> listaComentario = comentariosService.getAll();
         model.addAttribute("titulo", "Comentarios");

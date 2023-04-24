@@ -39,7 +39,7 @@ nav ul li a {
     left: 7%;
 }
 .login{
-    position:relative;
+    position:absolute;
     bottom: 130px;
     left: 1600px;
 }
@@ -52,32 +52,28 @@ nav ul li a {
 
 }
 .userImg{
-    position:relative;
-    bottom: 3px;
-    right: 3%;
+    position:absolute;
+    bottom: 7px;
+    left: 10%;
 
 }
 .userImg1{
-    position:relative;
-    bottom: 3px;
-    right: 3%;
+    position:absolute;
+    bottom: 7px;
+    left: 10%;
 }
 .logout{
-    position:relative;
-    bottom: 130px;
-    left: 1663px;
+    position:absolute;
+    bottom: 100px;
+    left: 1640px;
     font-size: 20px;
 }
 
 
-.logoutimg{
-    position:absolute;
-    bottom: 3px;
-    right: 170px;}
 
 .login1{
-    position:relative;
-    bottom: 130px;
+    position:absolute;
+    bottom: 120px;
     left: 1663px;
     font-size: 20px;
 }

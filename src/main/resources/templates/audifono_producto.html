@@ -23,7 +23,6 @@
             }
             .page-nav {
                 background-image: url(https://i.imgur.com/jL6ISFd.jpg);
-
                 position: static;
                 height: 100px;
             }
@@ -45,19 +44,18 @@
             }
             nav ul li a {
                 text-decoration: none;
-                color: white;
+                color: #ffffff;
                 font-size: 20px;
             }
             .nombre-tienda{
                 position:absolute;
                 top: 35px;
                 left: 7%;
-                color: white;
             }
             .login{
                 position:absolute;
-                top: 40px;
-                left: 86%;
+                bottom: 130px;
+                left: 1600px;
             }
             .logo{
                 position:absolute;
@@ -68,132 +66,146 @@
 
             }
             .userImg{
-                position:relative;
-                top: 25px;
-                right: 20%;
+                position:absolute;
+                bottom: 7px;
+                left: 10%;
 
             }
             .userImg1{
-                position:relative;
-                top: 25px;
-                right: 36%;
+                position:absolute;
+                bottom: 7px;
+                left: 10%;
+            }
+            .logout{
+                position:absolute;
+                bottom: 100px;
+                left: 1640px;
+                font-size: 20px;
+            }
 
+
+
+            .login1{
+                position:absolute;
+                bottom: 120px;
+                left: 1663px;
+                font-size: 20px;
             }
         </style>
     </head>
     <header>
-        <div class="page-nav">
-                <div class="nombre-tienda">
-                    <h1><a title="Logo" href="index.html">
-                        </a> Tienda</h1>
-                </div>
-                <div class="logo">
-                    <img src="image/LOGO-HO.png" alt=""/>
-                </div>
-
+        <div class="page-nav text-light">
+            <div class="nombre-tienda">
+                <h1><a title="Logo" href="index.html">
+                    </a> Tienda</h1>
             </div>
-            <div class="page-nav"> 
-            </div>
-            <div class="">
-                <nav>
-                    <ul> 
-                        <div class="login">
-                            <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
-                                <img class="userImg1" src="image/user.png" alt="">
-                                <a class="text-light">Usuario</a>
-                            </li>
-                        </div> 
-                        <div class="login">
-                            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                                <img class="userImg" src="image/user.png" alt="">
-                                <a class="text-light">Administrador</a>
-                            </li>
-                        </div> 
-                        <div class="logout">
-                            <div sec:authorize="isAuthenticated()">
-                                <a href="javascript: document.logoutForm.submit()" class=" text-light">Logout</a>
-                                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-                                    <input hidden type="submit" value="Sign Out" />
-                                </form>
-                            </div>
-                        </div> 
-                        <div class="login1">
-                            <div sec:authorize="!isAuthenticated()">
-                                <img class="loginimg" src="image/login.png" alt="">
-                                <a class=" text-light" href="/login">Login</a>
-                            </div>
-                        </div>
-                    </ul>          
+            <div class="logo">
+                <img src="image/LOGO-HO.png" alt=""/>
             </div>
 
-        </nav>
-        <div class="navbar d-flex justify-content-center">
+        </div>
+        <div class="page-nav"> 
+        </div>
+        <div class="">
             <nav>
-                <ul>
-                    <li> <a href="index.html">Home</a> </li>
-                    <li> <a href="categorias.html">Menu</a> </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                            Categorias
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/monitor}">Monitores</a></li>
-                            <li><a class="dropdown-item" th:href="@{/audifono}">Audifonos</a></li>
-                            <li><a class="dropdown-item" th:href="@{/myt}">Teclados y mouse</a></li>
-                            <li><a class="dropdown-item" th:href="@{/shop}"> Todos los productos</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                            Contacto
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
-                            <li><a class="dropdown-item" href="">Contactenos</a></li>
-                        </ul>
-                    </li>
-                    <li> <a th:href="@{/carrito}">Carrito de compra</a> </li>
-                    <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                        <a class="nav-link" href="admin">Modo Admin</a>
-                    </li>
-                </ul>
-            </nav>
+                <ul> 
+                    <div class="login">
+                        <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
+                            <img class="userImg1" src="image/user.png" alt="">
+                            <a class="text-light">Usuario</a>
+                        </li>
+                    </div> 
+                    <div class="login">
+                        <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                            <img class="userImg" src="image/user.png" alt="">
+                            <a class="text-light">Administrador</a>
+                        </li>
+                    </div> 
+                    <div class="logout">
+                        <div sec:authorize="isAuthenticated()">
+                            <a href="javascript: document.logoutForm.submit()" class=" text-light">Logout</a>
+                            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                <input hidden type="submit" value="Sign Out" />
+                            </form>
+                        </div>
+                    </div> 
+                    <div class="login1">
+                        <div sec:authorize="!isAuthenticated()">
+                            <img class="loginimg" src="image/login.png" alt="">
+                            <a class=" text-light" href="/login">Login</a>
+                        </div>
+                    </div>
+                </ul>          
         </div>
-    </header>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-4 item-photo">
-                    <img style="max-width:100%;" src="https://igamingcr.com/wp-content/uploads/2021/10/RZ04-02830200-R3U1-600x600.jpg" />
-                </div>
-                <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${audifono}">
 
-                    <!-- Datos del producto-->
-                    <h3 th:text="${producto.getMarca.getMarca}+' '+${producto.getNombre_audifono}"></h3>   
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-                        mollit anim id est laborum.</h5>
+    </nav>
+    <div class="navbar d-flex justify-content-center">
+        <nav>
+            <ul>
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="categorias.html">Menu</a> </li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/monitor">Monitores</a></li>
+                        <li><a class="dropdown-item" href="/audifono">Audifonos</a></li>
+                        <li><a class="dropdown-item" href="/myt">Teclados y mouse</a></li>
+                        <li><a class="dropdown-item" href="/shop"> Todos los productos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
+                        Contacto
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/verComentarios">Comentarios</a></li>
+                        <li><a class="dropdown-item" href="">Contactenos</a></li>
+                    </ul>
+                </li>
+                <li> <a href="carrito">Carrito de compra</a> </li>
+                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                    <a class="nav-link" href="/admin">Modo Admin</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 item-photo">
+                <img style="max-width:100%;" src="https://igamingcr.com/wp-content/uploads/2021/10/RZ04-02830200-R3U1-600x600.jpg" />
+            </div>
+            <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${audifono}">
 
-                    <!-- Precios -->
-                    <h6 class="title-price"><small>PRECIO:</small></h6>
-                    <h3 th:text="'₡'+${producto.getPrecio_audifono}" style="margin-top:0px;"></h3>
+                <!-- Datos del producto-->
+                <h3 th:text="${producto.getMarca.getMarca}+' '+${producto.getNombre_audifono}"></h3>   
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                    mollit anim id est laborum.</h5>
+
+                <!-- Precios -->
+                <h6 class="title-price"><small>PRECIO:</small></h6>
+                <h3 th:text="'₡'+${producto.getPrecio_audifono}" style="margin-top:0px;"></h3>
 
 
-                    
-                    <div class="section" style="padding-bottom:20px;">
 
-                        <form method="POST" th:action="@{/add-audifono-to-cart}">
-                            <input type="hidden" name="audifonoId" th:value="${producto.getId}">
-                            <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
-                        </form>
-                    </div>                                        
-                </div>
+                <div class="section" style="padding-bottom:20px;">
+
+                    <form method="POST" th:action="@{/add-audifono-to-cart}">
+                        <input type="hidden" name="audifonoId" th:value="${producto.getId}">
+                        <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
+                    </form>
+                </div>                                        
             </div>
         </div>
+    </div>
 
 
-        <footer th:replace="plantilla/template::footer"></footer>
-    </body>
+    <footer th:replace="plantilla/template::footer"></footer>
+</body>
 </html>

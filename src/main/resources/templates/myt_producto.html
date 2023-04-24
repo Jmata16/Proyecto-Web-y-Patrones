@@ -13,7 +13,7 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
               integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <style>
+         <style>
             @import url('https://fonts.googleapis.com/css2?family=Itim&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
             .titulo{
                 position:absolute;
@@ -24,7 +24,6 @@
             }
             .page-nav {
                 background-image: url(https://i.imgur.com/jL6ISFd.jpg);
-
                 position: static;
                 height: 100px;
             }
@@ -46,19 +45,18 @@
             }
             nav ul li a {
                 text-decoration: none;
-                color: white;
+                color: #ffffff;
                 font-size: 20px;
             }
             .nombre-tienda{
                 position:absolute;
                 top: 35px;
                 left: 7%;
-                color: white;
             }
             .login{
                 position:absolute;
-                top: 40px;
-                left: 86%;
+                bottom: 130px;
+                left: 1600px;
             }
             .logo{
                 position:absolute;
@@ -69,21 +67,35 @@
 
             }
             .userImg{
-                position:relative;
-                top: 25px;
-                right: 20%;
+                position:absolute;
+                bottom: 7px;
+                left: 10%;
 
             }
             .userImg1{
-                position:relative;
-                top: 25px;
-                right: 36%;
+                position:absolute;
+                bottom: 7px;
+                left: 10%;
+            }
+            .logout{
+                position:absolute;
+                bottom: 100px;
+                left: 1640px;
+                font-size: 20px;
+            }
 
+
+
+            .login1{
+                position:absolute;
+                bottom: 120px;
+                left: 1663px;
+                font-size: 20px;
             }
         </style>
     </head>
     <header>
-        <div class="page-nav">
+        <div class="page-nav text-light">
             <div class="nombre-tienda">
                 <h1><a title="Logo" href="index.html">
                     </a> Tienda</h1>
@@ -138,24 +150,24 @@
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/monitor}">Monitores</a></li>
-                        <li><a class="dropdown-item" th:href="@{/audifono}">Audifonos</a></li>
-                        <li><a class="dropdown-item" th:href="@{/myt}">Teclados y mouse</a></li>
-                        <li><a class="dropdown-item" th:href="@{/shop}"> Todos los productos</a></li>
+                        <li><a class="dropdown-item" href="/monitor">Monitores</a></li>
+                        <li><a class="dropdown-item" href="/audifono">Audifonos</a></li>
+                        <li><a class="dropdown-item" href="/myt">Teclados y mouse</a></li>
+                        <li><a class="dropdown-item" href="/shop"> Todos los productos</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle text-light" th:href="@{/carrito}" role="button" data-bs-toggle="dropdown">
+                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
                         Contacto
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="VerComentarios">Comentarios</a></li>
+                        <li><a class="dropdown-item" href="/verComentarios">Comentarios</a></li>
                         <li><a class="dropdown-item" href="">Contactenos</a></li>
                     </ul>
                 </li>
-                <li> <a th:href="@{/carrito}">Carrito de compra</a> </li>
+                <li> <a href="carrito">Carrito de compra</a> </li>
                 <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                    <a class="nav-link" href="admin">Modo Admin</a>
+                    <a class="nav-link" href="/admin">Modo Admin</a>
                 </li>
             </ul>
         </nav>
