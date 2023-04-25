@@ -7,7 +7,7 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
-        <link rel="stylesheet" href="css/tablas.css"/>
+        <link rel="stylesheet" href="css/diseño.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
@@ -20,7 +20,7 @@
             <div class="row justify-content-start mt-3 grid gap-3">
                 <div class="row ">
                     <div class="card my-3 mx-5" style="width: 18rem" th:each="mouse : ${myt}">
-                        <img th:src="@{'/FotoProductos/' + ${mouse.getImagePath}}" alt="${mouse.getImagePath}" class="card-img-top">
+                        <img th:src="@{'/FotoProductos/' + ${mouse.getImagePath}}" alt="${mouse.getImagePath}" class="img_size card-img-top">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${mouse.getMarca.getMarca}+' '+${mouse.getNombre_myt}"></h5>
                             <p class="card-text" th:text="'₡'+${mouse.getPrecio_myt}"></p>

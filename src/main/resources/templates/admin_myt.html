@@ -13,7 +13,13 @@
     </head>
     <body>
         <div class="container">
+            <button class="btn btn-info" onclick="redireccionar()">Atras</button>
 
+            <script>
+                function redireccionar() {
+                    window.location.href = "/admin/productos";
+                }
+            </script>
             <a th:href="@{/admin/productos/myt/add}" style="margin: 20px 0" class="btn btn-primary">Agregar</a>
             <table class="table">
                 <thead class="thead-light" style="background-color: #000">
@@ -22,6 +28,7 @@
                         <th scope="col">Nombre </th>
                         <th scope="col">Precio </th>
                         <th scope="col">Foto</th>
+                        <th scope="col">Descripcion</th>
                         <th scope="col">Editar </th>
                         <th scope="col">Borrar</th>
                     </tr>
@@ -33,9 +40,10 @@
                         <td th:text="${user.getNombre_myt}"></td>
                         <td th:text="${user.getPrecio_myt}"></td>
                         <td><img class="img-thumbnail rounded float - left" 
-                            th:src="@{'/FotoProductos/' + ${user.getImagePath}}" 
-                            alt="${user.getImagePath}"
-                            style="max-width: 25%"/></td>
+                                 th:src="@{'/FotoProductos/' + ${user.getImagePath}}" 
+                                 alt="${user.getImagePath}"
+                                 style="max-width: 100%"/></td>
+                         <td th:text="${user.descripcion}"></td>
                         <td><a href="" th:href="@{/admin/productos/myt/editar/{id}(id=${user.getId})}" class="btn btn-primary">Editar</a></td>
                         <td><a href="" th:href="@{/admin/productos/myt/borrar/{id}(id=${user.getId})}" class="btn btn-danger">Borrar</a></td>
 

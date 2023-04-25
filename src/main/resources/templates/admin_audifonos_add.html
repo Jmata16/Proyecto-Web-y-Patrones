@@ -56,7 +56,13 @@
                                 <input type="text" class="form-control form-control-sm col-md-6" th:field="*{precio_audifono}"  placeholder= "Precio" id="precio_audifono" aria-describedby="emailHelp">                            
                             </div>
                         </div>
-
+                        <div class="form-group mb-3 row"> 
+                            <label class="col-md-2 col-form-label" for="descripcion">Descripcion</label>
+                            <div class="col-sm-10 t"> 
+                                <textarea type="text" class="fs-6 form-control form-control-sm col-md-6" th:field="*{descripcion}" placeholder="" id="clientecomentario" aria-describedby="emailHelp" rows="6"
+                                          style="background: #fff;"></textarea>
+                            </div>
+                        </div>
                         <div class="form-group mb-3 row">
                             <label class="form-label" for="imageFile">Foto del producto</label>
                             <input type="file" class="form-control" name="imageFile" />

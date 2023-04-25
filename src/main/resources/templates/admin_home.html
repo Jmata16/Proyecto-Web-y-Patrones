@@ -12,12 +12,18 @@
         <title>Administrador</title>
     </head>
     <body>
-
         <div class="jumbotron text-center">
             <h1 class="display-4">¡Bienvenido!</h1>
             <p>Administra tu página desde aquí</p>
         </div>
         <div class="container-fluid">
+            <button class="btn btn-outline-info" onclick="redireccionar()">Atras</button>
+
+            <script>
+                function redireccionar() {
+                    window.location.href = "/shop";
+                }
+            </script>
             <div class="row">
                 <div class="col-sm-3 pt-3" >
                     <div class="card" style="background-color:white;">

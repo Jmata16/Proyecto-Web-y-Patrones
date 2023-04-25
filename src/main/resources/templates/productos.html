@@ -11,13 +11,19 @@
               integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <title>Administrador</title>
     </head>
-<body style="background-color:rgb(244,244,244);">
-        
+    <body>
         <div class="jumbotron text-center">
             <h1 class="display-4">Productos</h1>
             <p>Consulta los productos</p>
         </div>
         <div class="container-fluid">
+            <button class="btn btn-outline-info" onclick="redireccionar()">Atras</button>
+
+            <script>
+                function redireccionar() {
+                    window.location.href = "/admin";
+                }
+            </script>
             <div class="row">
                 <div class="col-sm-3 pt-3" >
                     <div class="card" style="background-color:white;">
