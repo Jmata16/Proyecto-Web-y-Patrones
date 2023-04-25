@@ -10,6 +10,11 @@ import com.Proyecto.service.AudifonoService;
 import com.Proyecto.service.CategoriaService;
 import com.Proyecto.service.MonitorService;
 import com.Proyecto.service.MyTService;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +23,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -25,18 +32,19 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class AdminController {
+
     @Autowired
     CategoriaService categoriaService;
-    
+
     @Autowired
     AudifonoService audifonoService;
-    
+
     @Autowired
     MonitorService monitorService;
-    
+
     @Autowired
     MarcaService marcaService;
-    
+
     @Autowired
     MyTService mytService;
 
@@ -56,149 +64,180 @@ public class AdminController {
         model.addAttribute("categoria", new Categoria());
         return "categoriasAdd";
     }
-    
+
     @PostMapping("/admin/categorias/add")
     public String postCategoriasAdd(@ModelAttribute("categoria") Categoria categoria) {
         categoriaService.addCategoria(categoria);
         return "redirect:/admin/categorias";
     }
-    
+
     @GetMapping("/admin/categorias/borrar/{id}")
-    public String borrarCategoria(@PathVariable int id){
+    public String borrarCategoria(@PathVariable int id) {
         categoriaService.delete(id);
         return "redirect:/admin/categorias";
     }
-    
+
     @GetMapping("/admin/productos")
-    public String productos_home(){
+    public String productos_home() {
         return "productos";
     }
-    
-    
+
     /////////  AUDIFONOS/////////////
-    
-    
     @GetMapping("/admin/productos/audifonos")
-    public String getAudifonos(Model model){
+    public String getAudifonos(Model model) {
         model.addAttribute("audifonos", audifonoService.getAll());
         return "admin_audifonos";
     }
-    
+
     @GetMapping("/admin/productos/audifonos/borrar/{id}")
-    public String eliminarAudifono(@PathVariable("id") Long idAudifono){
+    public String eliminarAudifono(@PathVariable("id") Long idAudifono) {
         audifonoService.delete(idAudifono);
         return "redirect:/admin/productos/audifonos";
     }
-    
+
     @GetMapping("/admin/productos/audifonos/add")
-    public String crearAudifono(Model model){
+    public String crearAudifono(Model model) {
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
-        model.addAttribute("audifono",new Audifono());
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
+        model.addAttribute("audifono", new Audifono());
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);
         return "admin_audifonos_add";
     }
-    
+
     @PostMapping("/admin/productos/audifonos/save")
-    public String guardarAudifono(@ModelAttribute Audifono audifono){
+    public String guardarAudifono(@ModelAttribute Audifono audifono,
+            @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+        if (!imageFile.isEmpty()) {
+            Path directorioImagenes = Paths.get("src//main//resources//static/FotoProductos");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+            
+            try{
+                byte[] bytesImg = imageFile.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imageFile.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+                audifono.setImagePath(imageFile.getOriginalFilename());
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
         audifonoService.saveAudifono(audifono);
         return "redirect:/admin/productos/audifonos";
     }
-    
+
     @GetMapping("/admin/productos/audifonos/editar/{id}")
-    public String editarAudifonos(@PathVariable("id") Long idAudifono, Model model){
+    public String editarAudifonos(@PathVariable("id") Long idAudifono, Model model) {
         Audifono audifono = audifonoService.getAudifonoById(idAudifono);
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
         model.addAttribute("audifono", audifono);
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);
         return "admin_audifonos_add";
     }
-    
-    
+
     /////////// MONITORES //////////////////
-    
-    
     @GetMapping("/admin/productos/monitores")
-    public String getMonitores(Model model){
+    public String getMonitores(Model model) {
         model.addAttribute("monitores", monitorService.getAll());
         return "admin_monitores";
     }
-    
+
     @GetMapping("/admin/productos/monitores/borrar/{id}")
-    public String eliminarMonitor(@PathVariable("id") Long idMonitor){
+    public String eliminarMonitor(@PathVariable("id") Long idMonitor) {
         monitorService.delete(idMonitor);
         return "redirect:/admin/productos/monitores";
     }
-    
+
     @GetMapping("/admin/productos/monitores/add")
-    public String crearMonitor(Model model){
+    public String crearMonitor(Model model) {
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
-        model.addAttribute("monitor",new Monitor());
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
+        model.addAttribute("monitor", new Monitor());
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);
         return "admin_monitores_add";
     }
-    
+
     @PostMapping("/admin/productos/monitores/save")
-    public String guardarMonitor(@ModelAttribute Monitor monitor){
+    public String guardarMonitor(@ModelAttribute Monitor monitor,
+            @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+        if (!imageFile.isEmpty()) {
+            Path directorioImagenes = Paths.get("src//main//resources//static/FotoProductos");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+            
+            try{
+                byte[] bytesImg = imageFile.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imageFile.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+                monitor.setImagePath(imageFile.getOriginalFilename());
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
         monitorService.saveMonitor(monitor);
         return "redirect:/admin/productos/monitores";
     }
-    
+
     @GetMapping("/admin/productos/monitores/editar/{id}")
-    public String editarMonitor(@PathVariable("id") Long idMonitor, Model model){
+    public String editarMonitor(@PathVariable("id") Long idMonitor, Model model) {
         Monitor monitor = monitorService.getMonitorById(idMonitor);
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
         model.addAttribute("monitor", monitor);
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);
         return "admin_monitores_add";
     }
-    
-    
-    
-    
+
     /////////// MOUSE Y TECLADO //////////////////
-    
-    
     @GetMapping("/admin/productos/myt")
-    public String getMyT(Model model){
+    public String getMyT(Model model) {
         model.addAttribute("myt", mytService.getAll());
         return "admin_myt";
     }
-    
+
     @GetMapping("/admin/productos/myt/borrar/{id}")
-    public String eliminarMyT(@PathVariable("id") Long idMyT){
+    public String eliminarMyT(@PathVariable("id") Long idMyT) {
         mytService.delete(idMyT);
         return "redirect:/admin/productos/myt";
     }
-    
+
     @GetMapping("/admin/productos/myt/add")
-    public String crearMyT(Model model){
+    public String crearMyT(Model model) {
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
-        model.addAttribute("myt",new MyT());
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
+        model.addAttribute("myt", new MyT());
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);
         return "admin_myt_add";
     }
-    
+
     @PostMapping("/admin/productos/myt/save")
-    public String guardarMyT(@ModelAttribute MyT myt){
+    public String guardarMyT(@ModelAttribute MyT myt,
+            @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+        if (!imageFile.isEmpty()) {
+            Path directorioImagenes = Paths.get("src//main//resources//static/FotoProductos");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+            
+            try{
+                byte[] bytesImg = imageFile.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imageFile.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+                myt.setImagePath(imageFile.getOriginalFilename());
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
         mytService.saveMyT(myt);
-        return "redirect:/admin/productos/monitores";
+        return "redirect:/admin/productos/myt";
     }
-    
+
     @GetMapping("/admin/productos/myt/editar/{id}")
-    public String editarMyT(@PathVariable("id") Long idMyT, Model model){
+    public String editarMyT(@PathVariable("id") Long idMyT, Model model) {
         MyT myt = mytService.getMyTById(idMyT);
         List<Marca> listaMarcas = marcaService.getAll();
-        List<Categoria> listaCategorias=categoriaService.getAllCategoria();
+        List<Categoria> listaCategorias = categoriaService.getAllCategoria();
         model.addAttribute("myt", myt);
         model.addAttribute("marcas", listaMarcas);
         model.addAttribute("categorias", listaCategorias);

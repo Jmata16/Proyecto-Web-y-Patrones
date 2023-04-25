@@ -175,8 +175,8 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xs-4 item-photo">
-                <img style="max-width:100%;" src="https://igamingcr.com/wp-content/uploads/2021/10/RZ04-02830200-R3U1-600x600.jpg" />
+            <div class="col-xs-4 item-photo" th:each="producto : ${audifono}">
+                <img style="max-width:80%;" th:src="@{'/FotoProductos/' + ${producto.getImagePath}}" alt="${producto.getImagePath}" />
             </div>
             <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${audifono}">
 

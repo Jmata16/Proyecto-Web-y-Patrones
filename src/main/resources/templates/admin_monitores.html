@@ -21,6 +21,7 @@
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo </th>
                         <th scope="col">Precio </th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Borrar</th>
                     </tr>
@@ -31,6 +32,10 @@
                         <td th:text="${user.getMarca.getMarca}"></td>
                         <td th:text="${user.getModelo}"></td>
                         <td th:text="${user.getCosto}"></td>
+                        <td><img class="img-thumbnail rounded float - left" 
+                            th:src="@{'/FotoProductos/' + ${user.getImagePath}}" 
+                            alt="${user.getImagePath}"
+                            style="max-width: 25%"/></td>
                         <td><a href="" th:href="@{/admin/productos/monitores/editar/{id}(id=${user.getId})}" class="btn btn-primary">Editar</a></td>
                         <td><a href="" th:href="@{/admin/productos/monitores/borrar/{id}(id=${user.getId})}" class="btn btn-danger">Borrar</a></td>
 

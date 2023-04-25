@@ -176,8 +176,8 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xs-4 item-photo">
-                <img style="max-width:100%;" src="https://content.syndigo.com/asset/96098ad1-1b57-479b-9a3b-49c4a58d1f3a/480.jpeg" />
+            <div class="col-xs-4 item-photo" th:each="producto : ${myt}">
+                <img style="max-width:100%;" th:src="@{'/FotoProductos/' + ${producto.getImagePath}}" alt="${producto.getImagePath}" />
             </div>
             <div class="col-xs-5" style="border:0px solid gray" th:each="producto : ${myt}">
 

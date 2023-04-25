@@ -30,6 +30,8 @@ public class Monitor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+    
+    private String imagePath;
 
     public long getId() {
         return id;
@@ -70,6 +72,16 @@ public class Monitor implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+    
+    
 
 
 }
