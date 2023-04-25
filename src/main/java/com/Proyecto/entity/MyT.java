@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 /**
  * MyT = Mouse y teclado
  *
@@ -25,14 +23,15 @@ public class MyT implements Serializable {
     private long id;
     private String nombre_myt;
     private double precio_myt;
+    private String descripcion;
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
-    
+
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-    
+
     private String imagePath;
 
     public long getId() {
@@ -82,7 +81,13 @@ public class MyT implements Serializable {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-    
-    
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
 }

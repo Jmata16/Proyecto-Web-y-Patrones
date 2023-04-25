@@ -164,7 +164,7 @@
                         <li><a class="dropdown-item" href="">Contactenos</a></li>
                     </ul>
                 </li>
-                <li> <a href="carrito">Carrito de compra</a> </li>
+                <li> <a href="/carrito">Carrito de compra</a> </li>
                 <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
                     <a class="nav-link" href="/admin">Modo Admin</a>
                 </li>
@@ -172,7 +172,7 @@
         </nav>
     </div>
 </header>
-<body>
+<body style="background-color:rgb(244,244,244);">
     <div class="container">
         <div class="row">
             <div class="col-xs-4 item-photo" th:each="producto : ${audifono}">

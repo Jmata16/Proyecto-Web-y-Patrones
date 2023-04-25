@@ -77,3 +77,13 @@ nav ul li a {
     left: 1663px;
     font-size: 20px;
 }
+.img_size{
+    width:200px;
+    height:280px;
+
+}
+
+.coment{
+    position: relative;
+    left: 13%;
+}

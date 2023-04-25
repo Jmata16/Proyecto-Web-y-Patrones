@@ -14,7 +14,7 @@
               integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <title>Tienda Principal</title>
     </head>
-    <body>
+    <body style="background-color:rgb(244,244,244);">
         <header th:replace="plantilla/template::header">    </header> 
 
         <nav>
@@ -22,10 +22,10 @@
         </nav>
         <div class="container" style="margin-top: 30px">
             <div class="row justify-content-start mt-3 grid gap-3">
-               
+
                 <div class="row justify-content-start mt-3 grid gap-3">
                     <div class="card my-3 mx-5" style="width: 18rem" th:each="user : ${audifonos}">
-                        <img th:src="@{'/FotoProductos/' + ${user.getImagePath}}" alt="${user.getImagePath}" class="card-img-top">
+                        <img th:src="@{'/FotoProductos/' + ${user.getImagePath}}" alt="${user.getImagePath}" class="img_size card-img-top">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${user.getMarca.getMarca}+' '+${user.getNombre_audifono}"></h5>
                             <p class="card-text" th:text="'₡'+${user.getPrecio_audifono}"></p>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="row justify-content-start mt-3 grid gap-3">
                     <div class="card my-3 mx-5" style="width: 18rem" th:each="monitor : ${monitores}">
-                        <img th:src="@{'/FotoProductos/' + ${monitor.getImagePath}}" alt="${monitor.getImagePath}" class="card-img-top">
+                        <img th:src="@{'/FotoProductos/' + ${monitor.getImagePath}}" alt="${monitor.getImagePath}" class="img_size card-img-top">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${monitor.getMarca.getMarca}+' '+${monitor.getModelo}"></h5>
                             <p class="card-text" th:text="'₡'+${monitor.getCosto}"></p>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="row justify-content-start mt-3 grid gap-3">
                     <div class="card my-3 mx-5" style="width: 18rem" th:each="mouse : ${myt}">
-                        <img th:src="@{'/FotoProductos/' + ${mouse.getImagePath}}" alt="${mouse.getImagePath}" class="card-img-top">
+                        <img th:src="@{'/FotoProductos/' + ${mouse.getImagePath}}" alt="${mouse.getImagePath}" class="img_size card-img-top">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${mouse.getMarca.getMarca}+' '+${mouse.getNombre_myt}"></h5>
                             <p class="card-text" th:text="'₡'+${mouse.getPrecio_myt}"></p>

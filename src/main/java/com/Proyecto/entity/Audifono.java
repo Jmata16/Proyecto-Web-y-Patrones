@@ -1,6 +1,5 @@
 package com.Proyecto.entity;
 
-
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,15 +24,15 @@ public class Audifono implements Serializable {
     private long id;
     private String nombre_audifono;
     private double precio_audifono;
-
+    private String descripcion;
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
-    
+
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-    
+
     private String imagePath;
 
     public long getId() {
@@ -83,8 +82,13 @@ public class Audifono implements Serializable {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-    
-    
-    
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
 }

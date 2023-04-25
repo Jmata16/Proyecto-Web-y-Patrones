@@ -23,6 +23,7 @@ public class Monitor implements Serializable {
     private long id;
     private String modelo;
     private double costo;
+    private String descripcion;
     @ManyToOne
     @JoinColumn(name = "marcas_id")
     private Marca marca;
@@ -80,8 +81,12 @@ public class Monitor implements Serializable {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-    
-    
 
+    public String getDescripcion() {
+        return descripcion;
+    }
 
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
