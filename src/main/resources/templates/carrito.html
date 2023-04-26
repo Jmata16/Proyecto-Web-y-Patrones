@@ -20,12 +20,12 @@
                             <div class="card-body p-4">
                                 <div class="row">
                                     <div class="col-lg-7">
-                                        <h5 class="mb-3"><a th:href="@{shop}" class="text-body"><i
-                                                    class="fas fa-long-arrow-alt-left me-2"></i>Continuar Comprando</a></h5>
+                                        <h5 th:text="#{carrito.continuar}"class="mb-3"><a th:href="@{shop}" class="text-body"><i
+                                                    class="fas fa-long-arrow-alt-left me-2"></i></a></h5>
                                         <hr>
                                         <div class="d-flex justify-content-between align-items-center mb-4">
                                             <div>
-                                                <p class="mb-1">Tu carrito</p>
+                                                <p class="mb-1"th:text="#{carrito.cartu}"></p>
                                             </div>
                                         </div>
                                         <div class="card mb-3" th:each="item: ${carrito}">
@@ -64,7 +64,7 @@
                                         <div class="card bg-primary text-white rounded-3">
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between align-items-center mb-4">
-                                                    <h5 class="mb-0">Detalles de pago</h5>
+                                                    <h5 class="mb-0"th:text="#{carrito.details}"></h5>
                                                 </div>
 
                                                 <form class="mt-4">
@@ -72,7 +72,7 @@
                                                         <input type="text" id="typeName"
                                                                class="form-control form-control-lg" siez="17"
                                                                placeholder="Nombre en la tarjeta" />
-                                                        <label class="form-label" for="typeName">Nombre en la tarjeta</label>
+                                                        <label class="form-label" for="typeName" th:text="#{carrito.tardName}"></label>
                                                     </div>
 
                                                     <div class="form-outline form-white mb-4">
@@ -80,7 +80,7 @@
                                                                class="form-control form-control-lg" siez="17"
                                                                placeholder="xxxx-xxxx-xxxx-xxxx" minlength="19"
                                                                maxlength="16" />
-                                                        <label class="form-label" for="typeText">Número de tarjeta</label>
+                                                        <label class="form-label" for="typeText" th:text="#{carrito.tardNum}"></label>
                                                     </div>
 
                                                     <div class="row mb-4">
@@ -90,7 +90,7 @@
                                                                        class="form-control form-control-lg"
                                                                        placeholder="MM/YYYY" size="6" minlength="7"
                                                                        maxlength="7" />
-                                                                <label class="form-label" for="typeExp">Expiración</label>
+                                                                <label class="form-label" for="typeExp" th:text="#{carrito.tardEx}"></label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -109,19 +109,19 @@
                                                 <hr class="my-4">
 
                                                 <div class="d-flex justify-content-between">
-                                                    <p class="mb-2">Envío</p>
-                                                    <p class="mb-2">GRATIS</p>
+                                                    <p class="mb-2"th:text="#{carrito.envio}"></p>
+                                                    <p class="mb-2" th:text="#{carrito.free}"></p>
                                                 </div>
 
                                                 <div class="d-flex justify-content-between mb-4">
-                                                    <p class="mb-2">Total</p>
+                                                    <p class="mb-2" th:text="#{carrito.total}"></p>
                                                     <p class="mb-2" th:text="'₡'+${total}" ></p>
                                                 </div>
 
                                                 <button type="button" onclick="redireccionar()" class="btn btn-info btn-block btn-lg">
                                                     <div class="d-flex justify-content-between">
                                                         <span th:text="'₡'+${total}"></span>
-                                                        <span>Pagar <i
+                                                        <span th:text="#{carrito.pay}"> <i
                                                                 class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                         <script>
                                                             function redireccionar() {

@@ -58,25 +58,6 @@ public class AdminController {
         model.addAttribute("categorias", categoriaService.getAllCategoria());
         return "categorias2";
     }
-
-    @GetMapping("/admin/categorias/add")
-    public String getCategoriasAdd(Model model) {
-        model.addAttribute("categoria", new Categoria());
-        return "categoriasAdd";
-    }
-
-    @PostMapping("/admin/categorias/add")
-    public String postCategoriasAdd(@ModelAttribute("categoria") Categoria categoria) {
-        categoriaService.addCategoria(categoria);
-        return "redirect:/admin/categorias";
-    }
-
-    @GetMapping("/admin/categorias/borrar/{id}")
-    public String borrarCategoria(@PathVariable int id) {
-        categoriaService.delete(id);
-        return "redirect:/admin/categorias";
-    }
-
     @GetMapping("/admin/productos")
     public String productos_home() {
         return "productos";

@@ -87,3 +87,19 @@ nav ul li a {
     position: relative;
     left: 13%;
 }
+.gradient2 {
+    border: 5px solid;
+    padding: 5px;
+    border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
+}
+.Idm{
+    position:absolute;
+    bottom: 100px;
+    right: 62px;
+    font-size: 20px;
+}
+.IdmImg{
+    position:relative;
+    bottom: 90px;
+    left: 5px;
+}

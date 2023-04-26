@@ -1,0 +1,70 @@
+<!DOCTYPE html><!-- //Developer.mozilla.org -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
+
+        <link rel="stylesheet" href="css/diseño.css"/>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!-- comment -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="estilos.css" />
+
+
+        <link href="css/contactenos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menu.css" rel="stylsheet" type="text/css" />
+
+
+        <title>Contactenos</title>
+    </head>
+
+    <body style="background-color:rgb(244,244,244);"> 
+        <header th:replace="plantilla/template::header"></header>     
+        <div class="contact-page-content">  
+            <div class="contact-forum">
+                <h3 th:text="#{Contact.Contact}"></h3>
+
+                <div class="cuadrado">
+
+                    <form th:object ="${contacto}"
+                          th:action ="@{/saveContacto}"
+                          method="POST">
+                        <div class="email">
+                            <label>Email</label>
+                            <input type="text" class="" th:field="*{email}" placeholder=" " id="email" aria-describedby="emailHelp"> 
+                        </div>
+                        <div class="comentario">
+                            <label th:text="#{Comentario}"></label>
+                            <input type="text" class="" th:field="*{comentario}" placeholder=" " id="comentario" aria-describedby="emailHelp"> 
+                        </div>
+
+                        <div class="boton">
+                            <div class="inner"></div>
+                            <button type="submit">Enviar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="contact-container">
+                <h3 th:text="#{navbar.contacto}"></h3>
+                <p><i class="fas fa-home mr-3"></i> San Pedro, SJ, CR</p>
+                <p><i class="fas fa-envelope mr-3"></i> info@GameOver.com</p>
+                <p><i class="fas fa-phone mr-3"></i> +506 2345-6789</p>
+                <p><i class="fas fa-print mr-3"></i> +506 8765-4321</p>
+            </div>        
+        </div>  
+        <footer th:replace="plantilla/template::footer">    </footer>
+    </body>
+</html>
+

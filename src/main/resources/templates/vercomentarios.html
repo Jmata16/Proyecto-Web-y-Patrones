@@ -15,13 +15,13 @@
     </head>
     <body style="background-color:rgb(244,244,244);">
         <header th:replace="plantilla/template::header"></header> 
-        <div class="titulo"><h2 th:text="${titulo}"></h2> </div> 
+        <div class="titulo"><h2 th:text="#{navbar.Comentario}"></h2> </div> 
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <div class="card shadow-0 border">
                     <div class="card-body p-4">
                         <div class="form-outline mb-4">
-                            <a class="btn btn-primary" href="comentario" role="button">Dejanos tu comentario</a>
+                            <a class="btn btn-primary" href="comentario" role="button" th:text="#{comentarios}"></a>
                         </div>
 
                         <div class="card mb-4">

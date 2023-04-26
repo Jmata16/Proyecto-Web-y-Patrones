@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  *
  * @author Pablo Guerrero
- */
+
 @Controller
 public class OuathSecurityController {
     @GetMapping("/auth")
@@ -15,3 +15,4 @@ public class OuathSecurityController {
     }
     
 }
+ */

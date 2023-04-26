@@ -13,20 +13,18 @@
     </head>
     <body>
         <div class="container">
-            <button class="btn btn-info" onclick="redireccionar()">Atras</button>
+            <button class="btn btn-info" style="margin: 20px 0" onclick="redireccionar()">Atras</button>
 
             <script>
                 function redireccionar() {
                     window.location.href = "/admin";
                 }
             </script>
-            <a th:href="@{/admin/categorias/add}" style="margin: 20px 0" class="btn btn-primary">Agregar</a>
             <table class="table">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Numero</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Borrar</th>
+                        <th scope="col">Nombre de categoria</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,9 +32,6 @@
                     <tr th:each="categoria, iStat : ${categorias}">
                         <th scope="row" th:text="${iStat.index + 1}">1</th>
                         <td th:text="${categoria.nombre}">Larry</td>
-
-                        <td><a href="" th:href="@{/admin/categorias/borrar/{id}(id=${categoria.id})}" class="btn btn-danger">Borrar</a></td>
-
                     </tr>
                 </tbody>
             </table>

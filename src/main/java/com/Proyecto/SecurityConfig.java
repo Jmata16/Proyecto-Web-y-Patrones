@@ -63,8 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login","/oauth2/**","/error")
                 .permitAll()
-                .anyRequest()
-                .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll().defaultSuccessUrl("/shop", true)

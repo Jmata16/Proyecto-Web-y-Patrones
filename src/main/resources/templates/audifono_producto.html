@@ -93,7 +93,7 @@
             }
         </style>
     </head>
-    <header>
+       <header>
         <div class="page-nav text-light">
             <div class="nombre-tienda">
                 <h1><a title="Logo" href="index.html">
@@ -112,18 +112,18 @@
                     <div class="login">
                         <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
                             <img class="userImg1" src="image/user.png" alt="">
-                            <a class="text-light">Usuario</a>
+                            <a class="text-light"th:text="#{user}"></a>
                         </li>
                     </div> 
                     <div class="login">
                         <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
                             <img class="userImg" src="image/user.png" alt="">
-                            <a class="text-light">Administrador</a>
+                            <a class="text-light" th:text="#{admin}"></a>
                         </li>
                     </div> 
                     <div class="logout">
                         <div sec:authorize="isAuthenticated()">
-                            <a href="javascript: document.logoutForm.submit()" class=" text-light">Logout</a>
+                            <a href="javascript: document.logoutForm.submit()" class=" text-light" th:text="#{Logout}"></a>
                             <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                                 <input hidden type="submit" value="Sign Out" />
                             </form>
@@ -131,45 +131,45 @@
                     </div> 
                     <div class="login1">
                         <div sec:authorize="!isAuthenticated()">
-                            <img class="loginimg" src="image/login.png" alt="">
-                            <a class=" text-light" href="/login">Login</a>
+                            <a class=" text-light" href="/login" th:text="#{logina}"></a>
                         </div>
                     </div>
+
                 </ul>          
         </div>
 
     </nav>
-    <div class="navbar d-flex justify-content-center">
-        <nav>
-            <ul>
-                <li> <a href="index.html">Home</a> </li>
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                        Categorias
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/monitor">Monitores</a></li>
-                        <li><a class="dropdown-item" href="/audifono">Audifonos</a></li>
-                        <li><a class="dropdown-item" href="/myt">Teclados y mouse</a></li>
-                        <li><a class="dropdown-item" href="/shop"> Todos los productos</a></li>
+            <div class="navbar d-flex justify-content-center">
+                <nav>
+                    <ul>
+                        <li> <a href="/index.html" th:text="#{navbar.Home}"></a> </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" 
+                               th:text="#{articulo.categoria}">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/monitor"  th:text="#{articulo.monitor}"></a></li>
+                                <li><a class="dropdown-item" href="/audifono" th:text="#{articulo.audifonos}" ></a></li>
+                                <li><a class="dropdown-item" href="/myt" th:text="#{articulo.tecladoyM}"   ></a></li>
+                                <li><a class="dropdown-item" href="/shop" th:text="#{articulo.todo}" ></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                               th:text="#{navbar.contacto}">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/contactos" th:text="#{navbar.contacto}"></a></li>
+                                <li><a class="dropdown-item" href="/verComentarios" th:text="#{navbar.Comentario}"></a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="/carrito" th:text="#{navbar.Carritodecompra}">Carrito de compra</a> </li>
+                        <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
+                            <a class="nav-link" href="/admin" th:text="#{Modo}"></a>
+                        </li>
                     </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-                        Contacto
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/verComentarios">Comentarios</a></li>
-                        <li><a class="dropdown-item" href="">Contactenos</a></li>
-                    </ul>
-                </li>
-                <li> <a href="/carrito">Carrito de compra</a> </li>
-                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                    <a class="nav-link" href="/admin">Modo Admin</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </nav>
+            </div>
 </header>
 <body style="background-color:rgb(244,244,244);">
     <div class="container">
@@ -194,7 +194,7 @@
 
                     <form method="POST" th:action="@{/add-audifono-to-cart}">
                         <input type="hidden" name="audifonoId" th:value="${producto.getId}">
-                        <button type="submit" class="btn btn-success d-grid gap-2 col-md-12"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carrito</button>
+                        <button type="submit" class="btn btn-success d-grid gap-2 col-md-12"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" th:text="#{boton.add}"></span> </button>
                     </form>
                 </div>                                        
             </div>

@@ -43,13 +43,4 @@ public class ComentarioController {
         model.addAttribute("comentarios", listaComentario);
         return "vercomentarios";
     }   
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
